@@ -155,8 +155,8 @@ function price_item($data) {
 
 /**
  * Escreve uma linha em um arquivo
- * @param $file: o nome do arquivo
- * @param $txt: o texto a ser escrito
+ * @param $file | Nome do arquivo
+ * @param $txt |  Texto a ser escrito
 */
 
 function wline($file, $txt){
@@ -165,7 +165,7 @@ function wline($file, $txt){
 
 /**
  * Lê uma linha em um arquivo
- * @param $filename: nome do arquivo
+ * @param $filename | Nome do arquivo
  * @return string | codigo HTML
  */
 function rfile($filename){
