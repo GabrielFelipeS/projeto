@@ -2,10 +2,10 @@
 <header>
     <div class="header">
         <div class="logo">
-            <div class="logoimg"><img src="./assets/images/livro_icon.png" alt="icone livro"></div>
+            <div class="logoimg"><img src="/projeto/assets/images/livro_icon.png" alt="icone livro"></div>
         </div>
         <div class="menu">
-            <img class="menu-opener" src="assets/images/menu.png" onclick="clickMenu()"/>
+            <img class="menu-opener" src="/projeto/assets/images/menu.png" onclick="clickMenu()"/>
             <nav id="nav">
                 <ul>
                     <li class="active"><a href="../projeto/index.php#">Home</a></li>

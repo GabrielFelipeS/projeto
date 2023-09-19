@@ -1,11 +1,11 @@
 <?php
-    include './inc/cabecalho.php'; 
-    include './lib/mylib.php'; 
-    include './lib/database.php';
-    include './inc/connection.php'; 
+    include '../inc/appearance/cabecalho.php'; 
+    include '../lib/mylib.php'; 
+    include '../lib/database.php';
+    include '../inc/connection.php'; 
     #$ISBN = $_GET['ISBN'];
-    include './inc/dados_editar.php';
-    include './inc/header.php';
+    include '../inc/dados_editar.php';
+    include '../inc/appearance/header.php';
 ?>
     
     <?= @abertura_dark(['titulo' => 'Gostaria de editar um livro?', 'id' => 'inserirLivros']) ?>
@@ -27,5 +27,5 @@
 </div>
 </section>
 
-<?php include './inc/footer.php'; ?>
-<?php include './inc/rodape.php'; ?>
+<?php include '../inc/appearance/footer.php'; ?>
+<?php include '../inc/appearance/rodape.php'; ?>

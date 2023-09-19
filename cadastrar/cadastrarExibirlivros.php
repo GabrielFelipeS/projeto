@@ -1,9 +1,11 @@
-<?php include './inc/appearance/cabecalho.php'; ?>
-<?php include './lib/mylib.php'; ?>
-<?php include './inc/connection.php'; ?>
-<?php include './lib/database.php'; ?>
+<?php include "../inc/appearance/cabecalho.php"; ?>
 
-<?php include './inc/appearance/header.php'; ?>
+<?php include '../lib/mylib.php'; ?>
+<?php include '../inc/connection.php'; ?>
+<?php include '../lib/database.php'; ?>
+
+<?php include '../inc/appearance/header.php'; ?>
+
 </header>
 <?= @abertura_light(['titulo' => 'Livros já cadastrados', 'id' => 'LivrosCadastrados']) ?>
     <div class="section-livros">
@@ -16,7 +18,7 @@
 
 <?= @abertura_dark(['titulo' => 'Gostaria de inserir um livro?', 'id' => 'inserirLivros']) ?>
     <div class="section-contact">
-        <form method="POST" enctype="multipart/form-data" action="./inc/cadastrar_livro.php">
+        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/cadastrar_livro.php">
             <div class="section-contact--split">
                 <input type="text" name="ISBN" placeholder="ISBN" required style="color: white;"/>
                 <input type="text" name="VALOR" placeholder="VALOR" required style="color: white;"/>
@@ -32,5 +34,5 @@
     </div>
 </div>
 </section>
-<?php include './inc/appearance/footer.php'; ?>
-<?php include './inc/appearance/rodape.php'; ?>
+<?php include '../inc/appearance/footer.php'; ?>
+<?php include '../inc/appearance/rodape.php'; ?>

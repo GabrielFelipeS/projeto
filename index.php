@@ -54,7 +54,7 @@
                 <?= carregarLivros()?>
 
             </div>
-            <a href="cadastrarExibirlivros.php" class="button">Mais livros</a>
+            <a href="cadastrar/cadastrarExibirlivros.php" class="button">Mais livros</a>
         </div>
         </div>
         </section>
