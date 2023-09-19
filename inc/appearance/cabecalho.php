@@ -1,4 +1,4 @@
-<?php include 'path.php' ?>
+<?#php include './projeto/inc/path.php' ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,9 +1,9 @@
  <?php
-    include './inc/cabecalho.php';
+    include './inc/appearance/cabecalho.php';
     include './lib/mylib.php';
     include './inc/connection.php';
     include './lib/database.php';
-    include './inc/header.php';
+    include './inc/appearance/header.php';
 
     
     $partes = explode("-",$_GET['ISBN']);

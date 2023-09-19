@@ -16,7 +16,7 @@
                 </p>
         </div>
         <div class="footer--item area3">
-            <form method="POST" action="./inc/cadastrar_email.php">
+            <form method="POST" action="./inc/cadastrar/cadastrar_email.php">
                 <input type="email" name="email" placeholder="INSIRA UM EMAIL PARA SE CADASTRAR" required/>
                 <button class="button">Inscreva-se</button>
             </form>

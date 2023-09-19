@@ -1,9 +1,9 @@
 <?php 
-    include './inc/cabecalho.php'; 
+    include './inc/appearance/cabecalho.php'; 
     include './lib/mylib.php'; 
     include './inc/connection.php'; 
     include './lib/database.php';
-    include './inc/header.php';
+    include './inc/appearance/header.php';
     $vendas = getall('compras');
  ?>
 
@@ -52,5 +52,5 @@
 </section>
 
 
-<?php include './inc/footer.php'; ?>
-<?php include './inc/rodape.php'; ?>
+<?php include './inc/appearance/footer.php'; ?>
+<?php include './inc/appearance/rodape.php'; ?>

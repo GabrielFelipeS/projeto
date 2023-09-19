@@ -1,4 +1,4 @@
-<?php include './inc/cabecalho.php'; ?>
+<?php include './inc/appearance/cabecalho.php'; ?>
 <?php include './inc/connection.php'; ?>
 </head>
 

@@ -1,11 +1,11 @@
-  <?php include './inc/cabecalho.php'; ?>
+  <?php include './inc/appearance/cabecalho.php'; ?>
   <?php include './lib/mylib.php'; ?>
   <?php include './inc/connection.php'; ?>
   <?php include './lib/database.php'; ?>
   </head>
   
   <body>
-      <?php include './inc/header.php'; ?>
+      <?php include './inc/appearance/header.php'; ?>
       </header>
 
       <main>
@@ -92,7 +92,7 @@
         </div>
         </section>
 
-        <?= include './inc/companies.php'; ?>
+        <?= include './inc/appearance/companies.php'; ?>
 
         <?= abertura_light(['titulo' => 'Preços', 'descricao' => 'Assinaturas', 'id' => 'Preco']) ?>
         <div class="section-price">
@@ -109,7 +109,7 @@
         </section>
 
         <?= abertura_light(['titulo' => 'Os livros', 'descricao' => 'Podem te levar a qualquer lugar do mundo', 'id' => 'premium']) ?>     
-        <div style="color: white;"><?= include './inc/carrosel.php'; ?> </div>     
+        <div style="color: white;"><?= include './inc/appearance/carrosel.php'; ?> </div>     
         </div>
         </section>
 
@@ -240,8 +240,8 @@
 
       </main>
 
-      <?php include './inc/footer.php'; ?>
-      <?php include './inc/rodape.php'; ?>
+      <?php include './inc/appearance/footer.php'; ?>
+      <?php include './inc/appearance/rodape.php'; ?>
 
 
 

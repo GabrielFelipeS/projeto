@@ -1,9 +1,9 @@
-<?php include './inc/cabecalho.php'; ?>
+<?php include './inc/appearance/cabecalho.php'; ?>
 <?php include './lib/mylib.php'; ?>
 <?php include './inc/connection.php'; ?>
 <?php include './lib/database.php'; ?>
 
-<?php include './inc/header.php'; ?>
+<?php include './inc/appearance/header.php'; ?>
 </header>
 <?= @abertura_light(['titulo' => 'Livros já cadastrados', 'id' => 'LivrosCadastrados']) ?>
     <div class="section-livros">
@@ -32,5 +32,5 @@
     </div>
 </div>
 </section>
-<?php include './inc/footer.php'; ?>
-<?php include './inc/rodape.php'; ?>
+<?php include './inc/appearance/footer.php'; ?>
+<?php include './inc/appearance/rodape.php'; ?>
