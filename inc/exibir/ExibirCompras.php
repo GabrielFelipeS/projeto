@@ -1,9 +1,9 @@
 <?php 
-    include './inc/appearance/cabecalho.php'; 
-    include './lib/mylib.php'; 
-    include './inc/connection.php'; 
-    include './lib/database.php';
-    include './inc/appearance/header.php';
+    include '../appearance/cabecalho.php'; 
+    include '../../lib/mylib.php'; 
+    include '../connection.php'; 
+    include '../../lib/database.php';
+    include '../appearance/header.php';
     $vendas = getall('compras');
  ?>
 
@@ -37,10 +37,10 @@
             <td><?php echo $quantidade; ?></td>
             <td><?php echo $venda['valor']; ?></td>
             <td>
-                <a href="./inc/excluirCompra.php?id=<?= $venda['id']; ?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="./assets/images/excluir.png" alt="excluir" ></button></a> 
+                <a href="/projeto/inc/excluir/excluirCompra.php?id=<?= $venda['id']; ?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a> 
             </td>
             <td>      
-                <a href="comprarLivro.php?ISBN=<?= $venda['ISBNlivro'].'-'.$venda['id'].'-'.'Editando o livro'.'-'.'salvarComprar.php?id='?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="./assets/images/editar.png" alt="editar"></button></a>           
+                <a href="comprarLivro.php?ISBN=<?= $venda['ISBNlivro'].'-'.$venda['id'].'-'.'Editando o livro'.'-'.'salvarComprar.php?id='?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>           
             </td>
           </tr>
         <?php } ?>
@@ -52,5 +52,5 @@
 </section>
 
 
-<?php include './inc/appearance/footer.php'; ?>
-<?php include './inc/appearance/rodape.php'; ?>
+<?php include '../appearance/footer.php'; ?>
+<?php include '../appearance/rodape.php'; ?>

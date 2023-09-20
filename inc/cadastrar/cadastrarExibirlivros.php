@@ -34,5 +34,5 @@
     </div>
 </div>
 </section>
-<?php include '../inc/appearance/footer.php'; ?>
-<?php include '../inc/appearance/rodape.php'; ?>
+<?php include '../appearance/footer.php'; ?>
+<?php include '../appearance/rodape.php'; ?>

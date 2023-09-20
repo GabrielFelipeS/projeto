@@ -200,7 +200,7 @@ function carregarLivros() {
     $html = "";
     $livros = getAll("livros");
     foreach($livros as $livro) {               
-        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="comprarLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
+        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="./inc/cadastrar/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
     }        
     echo $html;
 }
@@ -238,7 +238,7 @@ function carregarfunc() {
 function dados_do_livro($dadosDoLivro) {
     $html = '';
 
-    $html .= @section_livros(['titulo' => $dadosDoLivro['nomeLivro'], 'paragrafo' => $dadosDoLivro['descricao'], 'imagem' => $dadosDoLivro['nome_da_foto'],'botao' => '<a href="comprarLivro.php?ISBN='.$dadosDoLivro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>', 'botao' => '']);
+    $html .= @section_livros(['titulo' => $dadosDoLivro['nomeLivro'], 'paragrafo' => $dadosDoLivro['descricao'], 'imagem' => '/projeto/'.$dadosDoLivro['nome_da_foto'],'botao' => '<a href="comprarLivro.php?ISBN='.$dadosDoLivro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>', 'botao' => '']);
 
     #$html = "<img style=' width:200px; height:280px;' src= ./".$dadosDoLivro['nome_da_foto']." alt='Capa do livro> '";
     #$html .= '<div "><p><strong> '.$dadosDoLivro['nomeLivro'].'</strong></p></br>';

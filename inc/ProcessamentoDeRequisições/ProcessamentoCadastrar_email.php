@@ -1,5 +1,5 @@
 <?php
-    include '../lib/mylib.php';
+    include '../../lib/mylib.php';
 
     $email = $_POST['email']; 
     $email_post = fopen('arquivo_temp', "w") or die("Você não tem permissão para gravar neste diretório!");
@@ -27,4 +27,4 @@
     $myfile = fopen('emails', "a") or die("Você não tem permissão para gravar neste diretório!");
     wline($myfile, $email);
     fclose($myfile);
-    header('Location: ../index.php');
+    header('Location: ../../index.php');

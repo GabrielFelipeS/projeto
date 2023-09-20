@@ -11,7 +11,7 @@
     $email = fgets($email_post);
     fclose($email_post);
 
-    $myfile = fopen('emails', "r") or die("Você não tem permissão para gravar neste diretório!");
+    $myfile = fopen('./cadastrar/emails', "r") or die("Você não tem permissão para gravar neste diretório!");
 
     while(!feof($myfile)){      
         $email_arquivo = fgets($myfile);
