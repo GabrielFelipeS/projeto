@@ -5,4 +5,4 @@
 
     $ISBN = $_GET['ISBN'];
     delete('livros', ["ISBN = $ISBN"]);
-    header('Location: ../CadastrarExibirLivros.php');
+    header('Location: ../inc/cadastrar/CadastrarExibirLivros.php');

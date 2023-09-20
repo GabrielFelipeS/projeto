@@ -50,5 +50,6 @@
     </section>
 </div>
 </section>
+
 <?php include './inc/footer.php'; ?>
 <?php include './inc/rodape.php'; ?>
