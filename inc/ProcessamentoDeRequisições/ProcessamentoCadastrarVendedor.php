@@ -1,7 +1,7 @@
 <?php 
-    include '../lib/mylib.php';
-    include '../lib/database.php';
-    include 'connection.php'; 
+    include '../../lib/mylib.php';
+    include '../../lib/database.php';
+    include '../connection.php'; 
 
     $cpf = $_POST['CPF']; 
     $BuscarNoBanco = get('vendedor', "cpf = $cpf");
@@ -25,4 +25,4 @@
         echo 'ta rodando até aqui'; 
     }
 
-header('Location: ../Cadastrar_vendedor.php');
+header('Location: ../cadastrar/Cadastrar_vendedor.php');

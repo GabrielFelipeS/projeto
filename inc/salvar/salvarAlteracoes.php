@@ -1,7 +1,7 @@
 <?php
-    include '../lib/mylib.php';
-    include '../lib/database.php';
-    include 'connection.php'; 
+    include '../../lib/mylib.php';
+    include '../../lib/database.php';
+    include '../connection.php'; 
 
     $ISBN = $_GET['ISBN'];
 
@@ -13,4 +13,4 @@
 
     modificar('livros', ['ISBN = "'.$_POST['ISBN'].'"','valorLivro = "'. $_POST['VALOR'].'"', 'nomeLivro = "'.$_POST['NOME'].'"', 'descricao = "'.$_POST['DESCRICAO'].'"', 'nome_da_foto = "'.$caminho.'"'], "ISBN = $ISBN");
  
-    header('Location: ../CadastrarExibirLivros.php');
+    header('Location: ../cadastrar/CadastrarExibirLivros.php');

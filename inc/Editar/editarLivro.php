@@ -10,7 +10,7 @@
     
     <?= @abertura_dark(['titulo' => 'Gostaria de editar um livro?', 'id' => 'inserirLivros']) ?>
     <div class="section-contact">
-        <form method="POST" enctype="multipart/form-data" action="./inc/salvarAlteracoes.php?ISBN=<?=$_GET['ISBN']?>">
+        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/salvar/salvarAlteracoes.php?ISBN=<?=$_GET['ISBN']?>">
             <div class="section-contact--split">
                 <input type="text" value="<?= setValue('ISBN') ?>" name="ISBN" placeholder="ISBN" required style="color: white;"/>
                 <input type="text" value="<?= setValue('valorLivro') ?>" name="VALOR" placeholder="VALOR" required style="color: white;"/>
