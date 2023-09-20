@@ -12,7 +12,7 @@
 
     $titulo = empty($partes[2])? 'Comprando o livro!': $partes[2];
 
-    $link = empty($partes[3])? 'ProcessamentoCadastrarCompra.php?ISBN='.$ISBN: $partes[3].$id.'-'.$ISBN;
+    $link = empty($partes[3])? 'ProcessamentoCadastrarCompra.php?ISBN='.$ISBN : "../salvar/".$partes[3].$id.'-'.$ISBN;
 
     $dadosDoLivro = get('livros', "ISBN = $ISBN");
     if($id != '') {

@@ -1,7 +1,7 @@
 <?php 
-    include '../lib/mylib.php';
-    include '../lib/database.php';
-    include 'connection.php'; 
+    include '../../lib/mylib.php';
+    include '../../lib/database.php';
+    include '../connection.php'; 
 
     $partes = explode("-",$_GET['id']);
 
@@ -17,4 +17,4 @@
 
     modificar('compras', ['id = "'.$ID.'"','cpfComprador = "'. $_POST['cpf'].'"', 'ISBNlivro = "'.$ISBN.'"', 'codVendedor = "'.$_POST['codigo_vendedor'].'"', 'valor = "'.$valor.'"', 'cartao = "'.$_POST['cartao'].'"'], "id = $ID");
 
-    header('Location: ../ExibirCompras.php');
+    header('Location: ../exibir/ExibirCompras.php');
