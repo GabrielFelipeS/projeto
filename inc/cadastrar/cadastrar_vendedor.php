@@ -1,10 +1,10 @@
 
-<?php include './inc/cabecalho.php'; ?>
+<?php include '../appearance/cabecalho.php'; ?>
 
-<?php include './lib/mylib.php'; ?>
-<?php include './inc/connection.php'; ?>
-<?php include './lib/database.php'; ?>
-<?php include './inc/header.php'; ?>
+<?php include '../../lib/mylib.php'; ?>
+<?php include '../connection.php'; ?>
+<?php include '../../lib/database.php'; ?>
+<?php include '../appearance/header.php'; ?>
 
 <style>
     .centralizar{

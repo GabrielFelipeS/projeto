@@ -1,11 +1,11 @@
 
 
 <?php 
-    include './inc/cabecalho.php'; 
-    include './lib/mylib.php'; 
-    include './inc/connection.php'; 
-    include './lib/database.php'; 
-    include './inc/header.php';
+    include '../appearance/cabecalho.php'; 
+    include '../../lib/mylib.php'; 
+    include '../connection.php'; 
+    include '../../lib/database.php'; 
+    include '../appearance/header.php';
     
     $id = $_GET['cod'];
     $cod = $_GET['cod'];
@@ -53,5 +53,5 @@
     </div>
 </div>
 </section>
-<?php include './inc/footer.php'; ?>
-<?php include './inc/rodape.php'; ?>
+<?php include '../appearance/footer.php'; ?>
+<?php include '../appearance/rodape.php'; ?>

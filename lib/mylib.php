@@ -228,9 +228,9 @@ function carregarfunc() {
                  "Data de nascimento: ".$vendedor['data_de_nascimento']."</br>".
                  "Nacionalidade: ".$vendedor['nacionalidade'].
 
-                 '</br><a href="./inc/excluirVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);"" src="./assets/images/excluir.png" alt="excluir" ></button></a>  
+                 '</br><a href="../excluir/excluirVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
 
-                 <a href="editarVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);" src="./assets/images/editar.png" alt="editar"></button></a>'."</div>";
+                 <a href="../editar/editarVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>'."</div>";
     }
     echo $html;
 }

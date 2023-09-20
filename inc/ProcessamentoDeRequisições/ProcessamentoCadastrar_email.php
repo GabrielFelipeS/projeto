@@ -9,7 +9,7 @@
     $post = fgets($email_post);
     fclose($email_post);
 
-    $myfile = fopen('emails', "r") or die("Você não tem permissão para gravar neste diretório!");
+    $myfile = fopen('../cadastrar/emails', "r") or die("Você não tem permissão para gravar neste diretório!");
 
     while(!feof($myfile)){      
         $email_arquivo = fgets($myfile);
@@ -22,9 +22,9 @@
         }
     }
     fclose($myfile);
+    echo "teste";
 
-
-    $myfile = fopen('emails', "a") or die("Você não tem permissão para gravar neste diretório!");
+    $myfile = fopen('../cadastrar/emails', "a") or die("Você não tem permissão para gravar neste diretório!");
     wline($myfile, $email);
     fclose($myfile);
-    header('Location: ../../index.php');
+    header('Location: /projeto/index.php');
