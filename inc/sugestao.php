@@ -1,7 +1,7 @@
 <?php
     include '../lib/mylib.php';
 
- 
+    //var_dump($_FILES);
     $email = $_POST['email']; 
     $email_post = fopen('arquivo_temp', "w") or die("Você não tem permissão para gravar neste diretório!");
     wline($email_post, $email);
