@@ -48,7 +48,7 @@ class Usuario{
     function set_fotoPerfil($fotoPerfil){
         $this->fotoPerfil = $fotoPerfil; 
     }
-    function cadastrar($nome, $nascimento, $telefone, $email, $senha, $fotoPerfil) {
+    function cadastrar($nome, $nascimento, $telefone, $email, $senha) {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
         $dataSQL = date('Y-m-d', strtotime(str_replace('/', '-', $nascimento)));
         //var_dump($_FILES);

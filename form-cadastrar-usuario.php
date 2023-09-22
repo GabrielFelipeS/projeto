@@ -52,21 +52,23 @@
 
 <body>
    
-      <?= @abertura_dark(['titulo' => 'Cadastro', 'id' => 'cadastroUsuario']) ?>
+     
+<?= @abertura_dark(['titulo' => 'Cadastro', 'id' => 'cadastroUsuario']) ?>
       <div class="section-contact">
-          <form method="POST"  action="./inc/ProcessamentoDeRequisições/ProcessamentoCadastrar-usuario-processamento.php">
+          <form method="POST" enctype="multipart/form-data"  action="./inc/ProcessamentoDeRequisições/ProcessamentoCadastrar-usuario-processamento.php">
               <input type="text" name="nome" placeholder="Nome Completo" required style= "color: white;"/>
               <div class="section-contact--split">
                   <input type="text" name="nascimento" placeholder="Data de nascimento" required style="color: white;"/>
                   <input type="text" name="telefone" placeholder="Telefone"  style="color: white;"/>
               </div>
 
-              <input type="text" name="email" placeholder="E-mail" required style="color: white;">
+              <input type="text" name="email" placeholder="E-mail" required style="color: white;"/>
+
               <input type="password" name="senha" placeholder="Senha" required style="color: white; "/>
 
               <div class="custom-file">
-                            <input type="file" accept="image/*" class="custom-file-input" id="imagem" name="imagem" required>                        
-                            <label class="custom-file-label" for="comprovonte">Escolher arquivo</label>
+                  <input type="file" accept="image/*" class="custom-file-input" id="fotoPerfil" name="fotoPerfil" required />                        
+                  <label class="custom-file-label" for="fotoPerfil">Escolher arquivo</label>
                 </div>
 
               <input type="submit" value="Cadastrar" class="button"/>

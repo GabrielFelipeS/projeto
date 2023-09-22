@@ -12,20 +12,20 @@
         $telefone = $_POST["telefone"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
-        $fotoPerfil = $_POST["fotoPerfil"];
     //conexão com o banco de dados;
         $usuario = new Usuario($conn);
     //cadastrar o usuário
-        if ($usuario->cadastrar($nome, $nascimento, $telefone, $email, $senha, $fotoPerfil)){
+        if ($usuario->cadastrar($nome, $nascimento, $telefone, $email, $senha)){
         // Redirecionar para a página de sucesso após o cadastro
-            header("Location: ../form-cadastrar-usuario.php");
+            //header("Location: ../../form-cadastrar-usuario.php");
+            header('Location: ../../form_login.php');
             exit();
         }else{
             echo "erro! tente novamente!";
         }
     }
 
-    header('Location: ../../form_login.php');
+    
     ?>
 
 
