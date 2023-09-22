@@ -1,4 +1,5 @@
 create database if not exists bibliotex;
+
 use bibliotex;
 
 create table if not exists livros (
@@ -36,6 +37,8 @@ insert into livros values ("012",  "Corte de Nevoa e Fúria", 72, "Por amor ela 
 #SELECT * FROM vendedor, endereco WHERE endereco.cpf = cpf AND endereco.cpf = 2;
 
 CREATE TABLE if not exists vendedor(
+
+
 	codigo_vendedor INT AUTO_INCREMENT,
 	cpf varchar(13) UNIQUE,
 	nomeCompleto varchar(40),
@@ -48,6 +51,7 @@ CREATE TABLE if not exists vendedor(
 insert into vendedor VALUES (001, "1234567891233", "Gabriel Felipe", "2003/04/14", "Brasileiro");
 insert into vendedor VALUES (002, "123456789124", "Gabriely Cavalcante", "2003/04/14", "Brasileiro");
 insert into vendedor VALUES (003, "12465887",	"Antônio Morrendo das Dores",	"1996-07-14",	"Brasileiro");
+
 create table if not exists endereco (
 	cpfDono varchar(13),
     bairro varchar(40),
@@ -61,7 +65,9 @@ create table if not exists endereco (
 );
 
 insert into endereco VALUES ("1234567891233", "Pimentas", "Av. Salgado FIlho","Guarulhos","São Paulo", "07115-0001", "Dani Salgados");
+
 insert into endereco VALUES ("123456789124", "Pimentas", "Av. Salgado FIlho","Guarulhos","São Paulo", "07115-0001", "Dani Salgados");
+
 insert into endereco VALUES ("12465887",	"Pimentas",	"Av. Salgado FIlho", "Guarulhos", "São Paulo", "07115-000", "Dani Salgados");
 
 create table if not exists compras (
@@ -75,7 +81,10 @@ create table if not exists compras (
     foreign key (codVendedor) references vendedor(codigo_vendedor)
 		ON DELETE CASCADE
 );
+
+
 insert into compras VALUES (1, "1234567891233", "004", "2", 240, "1234-5119");
+
 insert into compras VALUES (2, "12345675268", "001", "2", 50, "1234-6125");
 insert into compras VALUES (3, "46522714552", "002", "1", 17, "1234-5612");
 insert into compras VALUES (6, "246579158228", "006", "3", 47, "1234-5699");
@@ -93,5 +102,8 @@ CREATE TABLE if not exists usuario(
 	primary key(email)
 );
 
-select * from usuario
+select * from usuario;
+
+insert into usuario VALUES ("Keilah", "06", "11960611876", "osanaikeilah@gmail.com", "a", "a"); 
+
 -- drop table usuario
