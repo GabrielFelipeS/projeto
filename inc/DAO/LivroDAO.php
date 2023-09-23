@@ -15,6 +15,17 @@ class LivroDAO {
         $stmt->execute();
     }
 
+    function getAll() {
+        $sql = "SELECT * FROM $this->NomeTabela";
+        $stmt = $this->conn->query($sql);
+        $livros = [];
+        while($row = $stmt->fetch_assoc()) {
+            $livros[] = $row;
+        }
+        return $livros;
+        #return $stmt->fetch();
+    }
+
     function trueIfNotExist($ISBN) {
         $sql = "SELECT * FROM $this->NomeTabela WHERE ISBN = ?";
         $stmt = $this->conn->prepare($sql);

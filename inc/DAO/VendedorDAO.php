@@ -18,6 +18,16 @@ class VendedorDAO {
 
     }
 
+    function getAll() {
+        $sql = "SELECT * FROM $this->NomeTabela";
+        $stmt = $this->conn->query($sql);
+        $vendedores = [];
+        while($row = $stmt->fetch_assoc()) {
+            $vendedores[] = $row;
+        }
+        return $vendedores;
+        #return $stmt->fetch();
+    }
     function modificarByCPF($cpf, $vendedor) {
         var_dump($vendedor);
         

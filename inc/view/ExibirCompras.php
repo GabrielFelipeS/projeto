@@ -4,7 +4,10 @@
     include '../connection.php'; 
     include '../../lib/database.php';
     include '../appearance/header.php';
-    $vendas = getall('compras');
+    include '../DAO/CompraDAO.php';
+    $compraDAO = new CompraDAO($conn);
+    $vendas = $compraDAO->getAll();
+    #$vendas = getall('compras');
  ?>
 
 

@@ -24,6 +24,17 @@ class CompraDAO {
         $stmt->execute();
     }
 
+    function getAll() {
+        $sql = "SELECT * FROM $this->NomeTabela";
+        $stmt = $this->conn->query($sql);
+        $compras = [];
+        while($row = $stmt->fetch_assoc()) {
+            $compras[] = $row;
+        }
+        return $compras;
+        #return $stmt->fetch();
+    }
+
     function deleteByID($id) {
         $sql = "DELETE FROM $this->NomeTabela WHERE id = ?";
         $stmt = $this->conn->prepare($sql);

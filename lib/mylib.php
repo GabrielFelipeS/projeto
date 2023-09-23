@@ -1,5 +1,6 @@
 <?php
-
+include '../DAO/LivroDAO.php';
+include '../DAO/VendedorDAO.php';
 /**
 * cria um slide
 *
@@ -198,7 +199,10 @@ function rfile($filename){
 
 function carregarLivros() {
     $html = "";
-    $livros = getAll("livros");
+    GLOBAL $conn;
+    $livroDAO = new LivroDAO($conn);
+    $livros = $livroDAO->getAll();
+    
     foreach($livros as $livro) {               
         $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="./inc/view/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
     }        
@@ -207,7 +211,12 @@ function carregarLivros() {
 
 function carregarLivrosParaEditar() {
     $html = "";
-    $livros = getAll("livros");
+    GLOBAL $conn;
+    $livroDAO = new LivroDAO($conn);
+    $livros = $livroDAO->getAll();
+    #$livros = getAll("livros");
+    #var_dump($livros);
+
     foreach($livros as $livro) {               
         $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => '
         <a href="/projeto/inc/controller/excluirLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
@@ -220,7 +229,10 @@ function carregarLivrosParaEditar() {
 
 function carregarfunc() {
     $html = "";
-    $vendedores = getAll("vendedor");
+    GLOBAL $conn;
+    $vendedorDAO = new VendedorDAO($conn);
+    $vendedores = $vendedorDAO->getAll();
+    #$vendedores = getAll("vendedor");
     foreach($vendedores as $vendedor) {               
         $html .= "<div class='space'> Codigo do vendedor: ".$vendedor['codigo_vendedor']."</br>".
                 "Nome: ".$vendedor['nomeCompleto']."</br>".
