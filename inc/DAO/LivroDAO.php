@@ -10,8 +10,12 @@ class LivroDAO {
     function getValorLivroByISBN($ISBN) {
         $sql = "SELECT valorLivro FROM livros WHERE ISBN = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("d", $ISBN);
-        return $stmt->get_result();
+        $stmt->bind_param("i", $ISBN);
+        $stmt->execute();
+        $valorLivro = 0.0;
+        $stmt->bind_result($valorLivro);
+        $stmt->fetch();
+        return $valorLivro;
     }
 
 }

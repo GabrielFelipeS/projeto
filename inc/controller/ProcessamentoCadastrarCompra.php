@@ -1,16 +1,20 @@
 <?php 
-    include '../../lib/mylib.php';
-    include '../../lib/database.php';
-    include '../connection.php'; 
-
+include '../../lib/mylib.php';
+include '../../lib/database.php';
+include '../connection.php'; 
 
 $ISBN = $_GET['ISBN'];
+$quantidade = $_POST['quantidade'];
 
-$dados = get("livros", "ISBN = $ISBN");
-$valor = $_POST['quantidade'] * $dados['valorLivro'];
+$livroDAO = new LivroDAO($conn);
+$valorLivro = $livroDAO->getValorLivroByISBN($ISBN);
 
-create('compras', [NULL,$_POST['cpf'], $ISBN, $_POST['codigo_vendedor'], $valor, $_POST['cartao']]);
+$valorCompra = $valorLivro * $quantidade;
 
+$compra = new Compra($ID, $_POST['cpf'], $ISBN, $_POST['codigo_vendedor'], $valorCompra, $_POST['cartao']);
+
+$compraDAO = new CompraDAO($conn);
+$compraDAO->cadastrarCompra($id, $compra);
 
 
 
