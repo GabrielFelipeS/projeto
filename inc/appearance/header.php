@@ -17,7 +17,7 @@
                     <li><a href="/projeto/index.php#Preco">Preço</a></li>
                     <li><a href="/projeto/index.php#Detalhes">Detalhes</a></li>
                     <li><a href="/projeto/index.php#Sugestoes">Sugestoes</a></li>
-                    <li><a href="/projeto/inc/exibir/exibirCompras.php">Vendas</a></li>
+                    <li><a href="/projeto/inc/view/exibirCompras.php">Vendas</a></li>
                 </ul>
             </nav>
         </div>
