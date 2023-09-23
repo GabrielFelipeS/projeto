@@ -62,12 +62,12 @@
       <div class="login-form">
       <form method="POST" action="login-processamento.php">
           <h2 style="color:#fff; text-align: center;">LOGIN</h2>
-          <div class="form-group" style="margin-top: 20px;"> <!-- Adicionei margin-top para dar espaço antes do campo de email -->
-            <input type="email" id="email" name="email" placeholder="Email" required class="rounded-input">
+          <div class="form-group" style="margin-top: 20px;"> 
+          <input type="email" id="email" name="email" placeholder="Email" required class="rounded-input">
           </div>
 
           <div class="form-group">
-            <input type="password" id="senha" name="senha" placeholder="Senha" required class="rounded-input">
+          <input type="password" id="senha" name="senha" placeholder="Senha" required class="rounded-input">
           </div>
 
           <input type="submit" value="Login" class="button" />
@@ -99,3 +99,10 @@
     margin: 0;
   }
 </style>
+<?php
+session_start();
+if (isset($_SESSION["login_error"])) {
+    echo '<div class="error-message">' . $_SESSION["login_error"] . '</div>';
+    unset($_SESSION["login_error"]); // Limpa a mensagem de erro após exibi-la
+}
+?>
