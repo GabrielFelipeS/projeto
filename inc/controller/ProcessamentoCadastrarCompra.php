@@ -16,8 +16,6 @@ $compra = new Compra($ID, $_POST['cpf'], $ISBN, $_POST['codigo_vendedor'], $valo
 $compraDAO = new CompraDAO($conn);
 $compraDAO->cadastrarCompra($id, $compra);
 
-
-
 #cpfComprador varchar(13),
 #ISBNlivro varchar(30),
 #codVendedor INT,

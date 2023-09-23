@@ -23,7 +23,7 @@ class CompraDAO {
     }
 
     function deleteByID($id) {
-        $sql = 'DELETE FROM compras WHERE id = ?';
+        $sql = 'DELETE FROM $this->NomeTabela WHERE id = ?';
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("d", $id);
         $stmt->execute();

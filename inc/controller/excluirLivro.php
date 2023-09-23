@@ -1,8 +1,11 @@
 <?php
-    include '../../lib/mylib.php';
-    include '../../lib/database.php';
-    include '../connection.php'; 
+include '../../lib/mylib.php';
+include '../../lib/database.php';
+include '../connection.php'; 
+include '../DAO/LivroDAO.php';
 
-    $ISBN = $_GET['ISBN'];
-    delete('livros', ["ISBN = $ISBN"]);
-    header('Location: ../view/CadastrarExibirLivros.php');
+$ISBN = $_GET['ISBN'];
+$livroDAO = new LivroDAO($conn);
+$livroDAO->deleteByID($ISBN);
+
+header('Location: ../view/CadastrarExibirLivros.php');

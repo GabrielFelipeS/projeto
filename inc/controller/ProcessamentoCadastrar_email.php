@@ -2,9 +2,11 @@
     include '../../lib/mylib.php';
 
     $email = $_POST['email']; 
+    
     $email_post = fopen('arquivo_temp', "w") or die("Você não tem permissão para gravar neste diretório!");
     wline($email_post, $email);
     fclose($email_post);
+
     $email_post = fopen('arquivo_temp', "r") or die("Você não tem permissão para gravar neste diretório!");
     $post = fgets($email_post);
     fclose($email_post);

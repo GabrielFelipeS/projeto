@@ -1,11 +1,16 @@
 <?php
-    include '../../lib/mylib.php';
-    include '../../lib/database.php';
-    include '../connection.php'; 
+include '../../lib/mylib.php';
+include '../../lib/database.php';
+include '../connection.php';
+include '../DAO/VendedorDAO.php'; 
+include '../DAO/EnderecoDAO.php'; 
 
-    $cod = $_GET['cod'];
-    $buscar = get('vendedor', "codigo_vendedor = $cod");
-    echo $buscar['cpf'];
-    delete('vendedor', ['cpf ='. $buscar['cpf']]);
-    delete('endereco', ['cpfDono ='. $buscar['cpf']]);
-    header('Location: ../view/cadastrar_vendedor.php');
+$cod = $_GET['cod'];
+$VendedorDAO = new VendedorDAO($conn);
+$cpf = $VendedorDAO->getCPFByCod($cod);
+$VendedorDAO->deleteByCPF($cpf);
+
+$EnderecoDAO = new EnderecoDAO($conn);
+$EnderecoDAO->deleteByCPF($cpf);
+
+header('Location: ../view/cadastrar_vendedor.php');

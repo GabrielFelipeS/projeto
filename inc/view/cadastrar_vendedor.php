@@ -31,7 +31,7 @@
 
 <?= @abertura_dark(['titulo' => 'Cadastrar funcionario', 'id' => 'JaCadastrados']) ?>
 <div class="section-contact">
-        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/ProcessamentoDeRequisições/ProcessamentoCadastrarVendedor.php">
+        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/controller/ProcessamentoCadastrarVendedor.php">
             <input type="text" value="<?= setValue('nomeCompleto') ?>" name="NOME" placeholder="NOME COMPLETO" required style="color: white;"/>
             <div class="section-contact--split">
                 <input type="text" value="<?= setValue('codigo_vendedor') ?>" name="CODIGO_VENDEDOR" placeholder="CODIGO DO VENDEDOR" style="color: white;"/>
