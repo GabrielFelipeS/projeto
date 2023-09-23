@@ -3,7 +3,7 @@
 <?php include '../../lib/mylib.php'; ?>
 <?php include '../connection.php'; ?>
 <?php include '../../lib/database.php'; ?>
-
+<?php include '../DAO/LivroDAO.php'; ?>
 <?php include '../appearance/header.php'; ?>
 
 </header>

@@ -5,6 +5,7 @@
 <?php include '../connection.php'; ?>
 <?php include '../../lib/database.php'; ?>
 <?php include '../appearance/header.php'; ?>
+<?php include '../DAO/VendedorDAO.php';?>
 
 <style>
     .centralizar{

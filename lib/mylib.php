@@ -1,6 +1,6 @@
 <?php
-include '../DAO/LivroDAO.php';
-include '../DAO/VendedorDAO.php';
+#include '../DAO/LivroDAO.php';
+#include '../DAO/VendedorDAO.php';
 /**
 * cria um slide
 *

@@ -2,6 +2,8 @@
   <?php include './lib/mylib.php'; ?>
   <?php include './inc/connection.php'; ?>
   <?php include './lib/database.php'; ?>
+  <?php include './inc/DAO/LivroDAO.php'; ?>
+  
   </head>
   
   <body>
