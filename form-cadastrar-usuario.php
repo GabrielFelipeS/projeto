@@ -14,60 +14,66 @@
 
 
        <style>
-         body {
-            background-color: black;
-        }
-    
-        html, body {
-          overflow: hidden;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
+          body {
+              background-color: black;
+          }
 
-        body {
-          background-color: black;
-        }
+          .section-contact {
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid black; 
+            border: fixed;
+          }
 
-        .section-contact {
-          display: flex;
-          justify-content: center;
-          align-items: flex-end; 
-          height: 70vh; 
-        }
 
-        .section-contact {
-          padding: 40px;
-          border-radius: 20px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          text-align: center;
-          max-width: 600px;
-          width: 100%;
-          box-sizing: border-box;
-          border: 2px solid black; 
-          border: fixed;
-        }
+          .section-contact input[type=text],input[type=password],
+          .section-contact textarea {
+              display:block;
+              width:100%;
+              height:40px;
+              border:0;
+              background:transparent;
+              border-bottom:1px solid #CCC;
+              outline:0;
+              margin-top:10px;
+              margin-bottom: 10px;
+          }
        </style>
     </header>
 
 <body>
-   
+        <?php 
+            if($_GET['erro'] == 1) {
+
+              //echo "<h1 style='display: flex; color: red; justify-content: center;'><strong>Email já existe</strong></h1>";
+
+              echo '<script>
+                alert("ERRO!\nEmail já existe!");
+              </script>';
+             
+            }
+        ?>
      
 <?= @abertura_dark(['titulo' => 'Cadastro', 'id' => 'cadastroUsuario']) ?>
       <div class="section-contact">
           <form method="POST" enctype="multipart/form-data"  action="./inc/controller/ProcessamentoCadastrar-usuario-processamento.php">
               <input type="text" name="nome" placeholder="Nome Completo" required style= "color: white;"/>
               <div class="section-contact--split">
-                  <input type="text" name="nascimento" placeholder="Data de nascimento" required style="color: white;"/>
+                  <input type="text" name="nascimento" placeholder="Nascimento(dd/mm/YY) " required style="color: white;"/>
                   <input type="text" name="telefone" placeholder="Telefone"  style="color: white;"/>
               </div>
 
               <input type="text" name="email" placeholder="E-mail" required style="color: white;"/>
 
-              <input type="password" name="senha" placeholder="Senha" required style="color: white; "/>
+              <input type="password" id = "senhaCad" name="senha" placeholder="Senha" required style="color: white; "/>
 
               <div class="custom-file">
-                  <input type="file" accept="image/*" class="custom-file-input" id="fotoPerfil" name="fotoPerfil" required />                        
+                  <input type="file" accept="image/*" class="custom-file-input" id="fotoPerfil" name="fotoPerfil" required/>                        
                   <label class="custom-file-label" for="fotoPerfil">Escolher arquivo</label>
                 </div>
 
