@@ -25,4 +25,4 @@
         echo 'ta rodando até aqui'; 
     }
 
-header('Location: ../cadastrar/Cadastrar_vendedor.php');
+header('Location: ../view/Cadastrar_vendedor.php');

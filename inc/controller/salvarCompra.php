@@ -1,20 +1,27 @@
 <?php 
-    include '../../lib/mylib.php';
-    include '../../lib/database.php';
-    include '../connection.php'; 
+include '../../lib/mylib.php';
+include '../../lib/database.php';
+include '../connection.php'; 
+include '../DAO/LivroDAO.php';
 
-    $partes = explode("-",$_GET['id']);
+$partes = explode("-",$_GET['id']);
 
-    $ID = $partes[0];
-    $ISBN = $partes[1];
+$ID = $partes[0];
+$ISBN = $partes[1];
+$quantidade = $_POST['quantidade'];
 
-    $dados = get('livros', "ISBN=$ISBN");
-    $valor = $dados['valorLivro'] * $_POST['quantidade'];
+$livroDAO = new LivroDAO($conn);
 
-    echo '</br>ID: '.$ID;
-    echo '</br>ISBN: '.$ISBN;
-    echo '</br>Valor: '.$valor;
+$valorLivro = $livroDAO->getValorLivroByISBN($ISBN);
 
-    modificar('compras', ['id = "'.$ID.'"','cpfComprador = "'. $_POST['cpf'].'"', 'ISBNlivro = "'.$ISBN.'"', 'codVendedor = "'.$_POST['codigo_vendedor'].'"', 'valor = "'.$valor.'"', 'cartao = "'.$_POST['cartao'].'"'], "id = $ID");
+#$dados = get('livros', "ISBN=$ISBN");
 
-    header('Location: ../view/ExibirCompras.php');
+$valorCompra = $valorLivro * $quantidade;
+
+echo '</br>ID: '.$ID;
+echo '</br>ISBN: '.$ISBN;
+echo '</br>Valor: '.$valor;
+
+modificar('compras', ['id = "'.$ID.'"','cpfComprador = "'. $_POST['cpf'].'"', 'ISBNlivro = "'.$ISBN.'"', 'codVendedor = "'.$_POST['codigo_vendedor'].'"', 'valor = "'.$valorCompra.'"', 'cartao = "'.$_POST['cartao'].'"'], "id = $ID");
+
+header('Location: ../view/ExibirCompras.php');

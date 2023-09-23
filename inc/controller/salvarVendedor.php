@@ -9,4 +9,4 @@
 
     modificar('endereco', ['cpfDono = "'.$_POST['CPF'].'"','bairro = "'. $_POST['bairro'].'"', 'cidade = "'.$_POST['cidade'].'"', 'estado = "'.$_POST['estado'].'"', 'cep = "'.$_POST['cep'].'"', 'complemento = "'.$_POST['complemento'].'"'], "cpfDono = $cpf");
  
-    header('Location: ../cadastrar_vendedor.php');
+    header('Location: ../view/cadastrar_vendedor.php');

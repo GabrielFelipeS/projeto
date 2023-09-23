@@ -8,4 +8,4 @@
     echo $buscar['cpf'];
     delete('vendedor', ['cpf ='. $buscar['cpf']]);
     delete('endereco', ['cpfDono ='. $buscar['cpf']]);
-    header('Location: ../cadastrar/cadastrar_vendedor.php');
+    header('Location: ../view/cadastrar_vendedor.php');
