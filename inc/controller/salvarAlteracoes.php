@@ -13,4 +13,4 @@
 
     modificar('livros', ['ISBN = "'.$_POST['ISBN'].'"','valorLivro = "'. $_POST['VALOR'].'"', 'nomeLivro = "'.$_POST['NOME'].'"', 'descricao = "'.$_POST['DESCRICAO'].'"', 'nome_da_foto = "'.$caminho.'"'], "ISBN = $ISBN");
  
-    header('Location: ../cadastrar/CadastrarExibirLivros.php');
+    header('Location: ../view/CadastrarExibirLivros.php');

@@ -200,7 +200,7 @@ function carregarLivros() {
     $html = "";
     $livros = getAll("livros");
     foreach($livros as $livro) {               
-        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="./inc/cadastrar/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
+        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="./inc/view/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
     }        
     echo $html;
 }
@@ -210,8 +210,8 @@ function carregarLivrosParaEditar() {
     $livros = getAll("livros");
     foreach($livros as $livro) {               
         $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => '
-        <a href="/projeto/inc/excluir/excluirLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
-        <a href="/projeto/inc/editar/editarLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>', 'imagem' => '/projeto//'.$livro['nome_da_foto']]);
+        <a href="/projeto/inc/controller/excluirLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
+        <a href="/projeto/inc/view/editarLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>', 'imagem' => '/projeto//'.$livro['nome_da_foto']]);
     }
     echo $html;    
 }
@@ -228,9 +228,9 @@ function carregarfunc() {
                  "Data de nascimento: ".$vendedor['data_de_nascimento']."</br>".
                  "Nacionalidade: ".$vendedor['nacionalidade'].
 
-                 '</br><a href="../excluir/excluirVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
+                 '</br><a href="../controller/excluirVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
 
-                 <a href="../editar/editarVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>'."</div>";
+                 <a href="../view/editarVendedor.php?cod='.$vendedor['codigo_vendedor'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-top: 20px;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>'."</div>";
     }
     echo $html;
 }

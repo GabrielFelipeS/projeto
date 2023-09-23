@@ -20,4 +20,4 @@
         create('livros', [$ISBN,  $nome, $valor, $descricao, $caminho]);    
     }
 
-header('Location: ../cadastrar/CadastrarExibirLivros.php');
+header('Location: ../view/CadastrarExibirlivros.php');

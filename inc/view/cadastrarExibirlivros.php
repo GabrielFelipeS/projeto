@@ -18,7 +18,7 @@
 
 <?= @abertura_dark(['titulo' => 'Gostaria de inserir um livro?', 'id' => 'inserirLivros']) ?>
     <div class="section-contact">
-        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/ProcessamentoDeRequisições/ProcessamentoCadastrar_livro.php">
+        <form method="POST" enctype="multipart/form-data" action="/projeto/inc/controller/ProcessamentoCadastrar_livro.php">
             <div class="section-contact--split">
                 <input type="text" name="ISBN" placeholder="ISBN" required style="color: white;"/>
                 <input type="text" name="VALOR" placeholder="VALOR" required style="color: white;"/>
