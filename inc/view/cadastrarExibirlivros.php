@@ -29,7 +29,7 @@
                         <input type="file" accept="media/*" class="custom-file-input" id="imagem" name="imagem" required>                        
                         <label class="custom-file-label" for="comprovonte">Escolher arquivo</label>
             </div>
-            <input type="submit" value="Envie a mensagem" class="button"/>
+            <input type="submit" value="Enviar livro" class="button"/>
         </form>
     </div>
 </div>
