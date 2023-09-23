@@ -54,7 +54,7 @@
                 <?= carregarLivros()?>
 
             </div>
-            <a href="./inc/cadastrar/cadastrarExibirlivros.php" class="button">Mais livros</a>
+            <a href="./inc/view/cadastrarExibirlivros.php" class="button">Mais livros</a>
         </div>
         </div>
         </section>
@@ -82,7 +82,7 @@
         <div class="section-testimonials">
         <div class="sliders">         
             <?php  
-                $slides = rfile('./inc/sugestoes'); 
+                $slides = rfile('./inc/controller/sugestoes'); 
                 foreach($slides as $slide) {
                     echo '</br>'.$slide;
                 }
@@ -183,7 +183,7 @@
 
         <?=  abertura_light(['titulo' => 'Sugestões', 'descricao' => 'Our Agency Located in Melbourne, Australia', 'id' => 'Sugestoes'])?>
         <div class="section-contact">
-            <form method="POST" enctype="multipart/form-data" action="./inc/sugestao.php">
+            <form method="POST" enctype="multipart/form-data" action="./inc/controller/sugestao.php">
                 <div class="section-contact--split">
                     <input type="text" name="name" placeholder="NOME" required/>
                     <input type="text" name="email" placeholder="EMAIL" required/>
