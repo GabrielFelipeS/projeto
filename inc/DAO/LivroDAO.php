@@ -8,6 +8,13 @@ class LivroDAO {
         $this->conn = $conn;
     }
 
+    function modificar($livro, $ISBN) {
+        $sql = "UPDATE $this->NomeTabela SET isbn = ?, nomeLivro = ? , valorLivro = ? , descricao = ?, nome_da_foto = ? WHERE ISBN = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssdsss", $ISBN, $livro->getnomeLivro(), $livro->getValorLivro(), $livro->getDescricao(), $livro->getNome_da_foto(), $ISBN);
+        $stmt->execute();
+    }
+
     function trueIfNotExist($ISBN) {
         $sql = "SELECT * FROM $this->NomeTabela WHERE ISBN = ?";
         $stmt = $this->conn->prepare($sql);

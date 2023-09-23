@@ -8,10 +8,12 @@ class CompraDAO {
         $this->conn = $conn;
     }
 
-    function cadastrarCompra($id, $compra) {
+    function cadastrarCompra($compra) {
         $sql = "INSERT INTO $this->NomeTabela VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("issidsi", $id, $compra->getCpfComprador(), $compra->getISBNLivro(), $compra->getCodigoVendedor(), $compra->getValorCompra(), $compra->getCartao(), $id);
+        $stmt->bind_param("issids",
+        $compra->getId(),
+        $compra->getCpfComprador(), $compra->getISBNLivro(), $compra->getCodigoVendedor(), $compra->getValorCompra(), $compra->getCartao());
         $stmt->execute();
     }
 
@@ -23,9 +25,9 @@ class CompraDAO {
     }
 
     function deleteByID($id) {
-        $sql = 'DELETE FROM $this->NomeTabela WHERE id = ?';
+        $sql = "DELETE FROM $this->NomeTabela WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("d", $id);
+        $stmt->bind_param("i", $id);
         $stmt->execute();
     }
 

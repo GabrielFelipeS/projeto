@@ -2,12 +2,18 @@
 
 class Livro {
     private $ISBN;
-    private $nomeivro;
+    private $nomeLivro;
     private $valorLivro;
     private $descricao;
     private $nome_da_foto;
 
-
+    function __construct($ISBN, $nomeivro, $valorLivro, $descricao, $nome_da_foto) {
+        $this->ISBN = $ISBN;
+        $this->nomeLivro = $nomeivro;
+        $this->valorLivro = $valorLivro;
+        $this->descricao = $descricao;
+        $this->nome_da_foto = $nome_da_foto;
+    }
 
 
     /**
@@ -21,9 +27,9 @@ class Livro {
     /**
      * Get the value of nomeivro
      */ 
-    public function getNomeivro()
+    public function getNomeLivro()
     {
-        return $this->nomeivro;
+        return $this->nomeLivro;
     }
 
     /**

@@ -4,7 +4,6 @@ class Compra {
     private $id;
     private $cpfComprador;
     private $ISBNLivro;
-    private $codVendedor;
     private $codigoVendedor;
     private $valorCompra;
     private $cartao;
@@ -14,7 +13,7 @@ class Compra {
         $this->id = $id;
         $this->cpfComprador = $cpfComprador;
         $this->ISBNLivro = $ISBNLivro;
-        $this->codVendedor = $codVendedor;
+        $this->codigoVendedor = $codVendedor;
         $this->valorCompra = $valorCompra;
         $this->cartao = $cartao;
     }

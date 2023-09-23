@@ -8,6 +8,28 @@ class VendedorDAO {
         $this->conn = $conn;
     }
   
+    function modificar($vendedor, $id) {
+        $sql = "UPDATE TABLE $this->NomeTabela SET codigo_vendedor = ?, cpf = ?, nomeCompleto = ?, data_de_nascimento = ?, nacionalidade = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("issssi", $vendedor->getCodigoVendedor(), $vendedor->getCpf(), $vendedor->getNome(), $vendedor->getNascimento(), $vendedor->getNacionalidade(),
+        $id    
+        );
+        $stmt->execute();
+
+    }
+
+    function modificarByCPF($cpf, $vendedor) {
+        var_dump($vendedor);
+        
+        $sql = "UPDATE $this->NomeTabela SET codigo_vendedor = ?, cpf = ?, nomeCompleto = ?, data_de_nascimento = ?, nacionalidade = ? WHERE cpf = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("isssss", $vendedor->getCodigoVendedor(), $vendedor->getCpf(), $vendedor->getNome(), $vendedor->getNascimento(), $vendedor->getNacionalidade(),
+        $cpf    
+        );
+        $stmt->execute();
+
+    }
+    
     function cadastrarVendedor($vendedor) {
         $sql = "INSERT INTO $this->NomeTabela VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
