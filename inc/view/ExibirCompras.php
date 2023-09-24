@@ -12,6 +12,36 @@
 
 
 <?= @abertura_light(['titulo' => '<strong>Lista de Vendas</strong>', 'id' => 'LivrosCadastrados']) ?>
+<?php 
+//INICO- trecho de confirmação de exclusão
+    $mensagemErro = '';
+    $erro = $_GET['excluido'] ?? '';
+
+    if ($erro == 'excluido_sucesso') {
+        $mensagemErro = "<p style='display: flex; color: red; justify-content: center;'><strong>Livro excluído da lista.</strong></p>";
+    }
+    ?>
+    <?php if ($mensagemErro): ?>
+        <div class="erro-mensagem" id="erroMensagem">
+            <?= $mensagemErro ?>
+        </div>
+    <?php endif; ?>
+
+    <script>
+    // Obtém a referência ao elemento da mensagem de erro
+    const erroMensagem = document.getElementById("erroMensagem");
+    // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+    const tempoExibicao = 4000; // 4 segundos
+    // Função para ocultar a mensagem após o tempo definido
+    function ocultarMensagemErro() {
+        erroMensagem.style.display = "none"; // Oculta a mensagem de erro
+    }
+    // Configura o temporizador para chamar a função após o tempo definido
+    setTimeout(ocultarMensagemErro, tempoExibicao);
+    //FIM -trecho de confirmação de exclusão
+</script>
+
+
 <div style="color: black;">
 <h4 style="display: flex; justify-content: center; margin: 10px;"></h4>
     <table class="table table-striped">

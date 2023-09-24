@@ -9,4 +9,4 @@ $ID = $_GET['id'];
 $compraDAO = new CompraDAO($conn);
 $compraDAO->deleteByID($ID);
 
-header('Location: ../view/ExibirCompras.php');
+header('Location: ../view/ExibirCompras.php?excluido=excluido_sucesso');

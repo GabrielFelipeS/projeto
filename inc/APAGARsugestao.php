@@ -1,5 +1,5 @@
 <?php
-    include '../../lib/mylib.php';
+    include '../lib/mylib.php';
 
     //var_dump($_FILES);
     $email = $_POST['email']; 
@@ -11,7 +11,7 @@
     $email = fgets($email_post);
     fclose($email_post);
 
-    $myfile = fopen('emails', "r") or die("Você não tem permissão para gravar neste diretório!");
+    $myfile = fopen('./cadastrar/emails', "r") or die("Você não tem permissão para gravar neste diretório!");
 
     while(!feof($myfile)){      
         $email_arquivo = fgets($myfile);
@@ -36,6 +36,6 @@
     }
 
     fclose($myfile);
-    header('Location: ../../index.php#Sugestoes?sugestao=recebida');
+    header('Location: ../index.php');
     //append: concatenação
     
