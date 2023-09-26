@@ -22,6 +22,7 @@ function verificarLogin($email, $senha) {
         $row = $result->fetch_assoc();
         $senhaHashArmazenada = $row["senha"];
 
+        
         if (hash('sha256', $senha) === $senhaHashArmazenada) {
             $stmt->close();
             $conn->close();
