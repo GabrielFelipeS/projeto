@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+    
     include '../appearance/cabecalho.php'; 
     include '../../lib/mylib.php'; 
     include '../connection.php'; 
@@ -7,11 +9,17 @@
     include '../DAO/CompraDAO.php';
     $compraDAO = new CompraDAO($conn);
     $vendas = $compraDAO->getAll();
+
+   if(!validar($_SESSION['email'])) {
+    header('Location: /projeto/index.php');
+   }
+    #var_dump($_SESSION);
     #$vendas = getall('compras');
  ?>
 
 
 <?= @abertura_light(['titulo' => '<strong>Lista de Vendas</strong>', 'id' => 'LivrosCadastrados']) ?>
+
 <?php 
 //INICO- trecho de confirmação de exclusão
     $mensagemErro = '';

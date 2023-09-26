@@ -204,9 +204,14 @@ function carregarLivros() {
     $livros = $livroDAO->getAll();
     
     foreach($livros as $livro) {               
-        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="./inc/view/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>']);
+        $html .= section_livros(carregarInformacoesDoLivro($livro));
     }        
     echo $html;
+}
+
+function carregarInformacoesDoLivro($livro) {
+    $livro['nome_da_foto'] = '/projeto//'.$livro['nome_da_foto'];
+    return ['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="/projeto/inc/view/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>'];
 }
 
 function carregarLivrosParaEditar() {
@@ -216,13 +221,24 @@ function carregarLivrosParaEditar() {
     $livros = $livroDAO->getAll();
     #$livros = getAll("livros");
     #var_dump($livros);
+    $callback = '';
+    if(validar($_SESSION['email'])) {
+        $callback = 'opcoesEditarExcluir';
+    } else {
+        $callback = 'carregarInformacoesDoLivro';
+    }
 
     foreach($livros as $livro) {               
-        $html .= section_livros(['titulo' => $livro['nomeLivro'], 'paragrafo' => '
-        <a href="/projeto/inc/controller/excluirLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
-        <a href="/projeto/inc/view/editarLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>', 'imagem' => '/projeto//'.$livro['nome_da_foto']]);
+        $html .= section_livros($callback($livro));
     }
+
     echo $html;    
+}
+
+function opcoesEditarExcluir($livro) {
+    return ['titulo' => $livro['nomeLivro'], 'paragrafo' => '
+    <a href="/projeto/inc/controller/excluirLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);"" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a>  
+    <a href="/projeto/inc/view/editarLivro.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>', 'imagem' => '/projeto//'.$livro['nome_da_foto']];
 }
 
 
@@ -259,4 +275,13 @@ function dados_do_livro($dadosDoLivro) {
 
 
     return $html;
+}
+
+function validar($email) {
+    if(empty($email)) {
+        return false;
+    }
+
+    $admin = "admin@admin.com";
+    return (strcmp($email, $admin) == 0);
 }

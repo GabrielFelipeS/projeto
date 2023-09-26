@@ -3,6 +3,7 @@
     include '../../lib/database.php';
     include '../connection.php'; 
     include '../DAO/LivroDAO.php';
+    include '../modelo/Livro.php';
 
     $ISBN = $_POST['ISBN']; 
 

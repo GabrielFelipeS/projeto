@@ -1,10 +1,11 @@
  <?php
+    session_start();
     include '../appearance/cabecalho.php';
     include '../../lib/mylib.php';
     include '../connection.php';
     include '../../lib/database.php';
     include '../appearance/header.php';
-
+    
     
     $partes = explode("-",$_GET['ISBN']);
     $ISBN = $partes[0];

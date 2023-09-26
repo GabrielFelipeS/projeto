@@ -1,7 +1,11 @@
-<?php include './inc/cabecalho.php'; ?>
-  <?php include './lib/mylib.php'; ?>
-  <?php include './inc/connection.php'; ?>
-  <?php include './lib/database.php'; ?>
+<?php 
+    session_start();
+    include './inc/cabecalho.php'; 
+    include './lib/mylib.php'; 
+    include './inc/connection.php'; 
+    include './lib/database.php'; 
+    
+?>
   </head>
   
   <body>

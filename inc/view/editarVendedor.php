@@ -1,12 +1,14 @@
 
 
 <?php 
+    session_start();
     include '../appearance/cabecalho.php'; 
     include '../../lib/mylib.php'; 
     include '../connection.php'; 
     include '../../lib/database.php'; 
     include '../appearance/header.php';
     
+
     $id = $_GET['cod'];
     $cod = $_GET['cod'];
     $buscar = get('vendedor', "codigo_vendedor = $cod");
@@ -16,6 +18,8 @@
     $sql = "SELECT * FROM vendedor v INNER JOIN endereco e ON v.cpf = e.cpfDono AND v.cpf =". $buscar['cpf'];
     $res = mysqli_query($conn, $sql);
     $_POST = mysqli_fetch_assoc($res);
+
+    
 ?>
 
 

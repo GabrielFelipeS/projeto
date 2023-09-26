@@ -104,6 +104,7 @@ CREATE TABLE if not exists usuario(
 
 select * from usuario;
 
-insert into usuario VALUES ("Keilah", "06", "11960611876", "osanaikeilah@gmail.com", "a", "a"); 
+insert into usuario VALUES ("Administrador",	"2023-04-14", "(11) 2484-515",	"admin@admin.com",	"$2y$10$AL2JJvjD0dqPojG0B/jGGei8Rq851T0NhaMTSipXXsq8nFlYELBBa",	"fotosPerfil/Administrador.png"); 
+insert into usuario VALUES ("Teste Testando", "2023-04-14",	"(11) 2484-515",	"teste@teste.com",	"$2y$10$QgbyE/MweK0/HgwlVI5mqOc3R90KmsXXyf/qfiRFgYkzrqhfnPnci",	"fotosPerfil/Teste Testando.png"); 
 
 -- drop table usuario

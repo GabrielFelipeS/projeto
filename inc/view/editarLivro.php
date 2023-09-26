@@ -1,11 +1,12 @@
 <?php
+    session_start();
     include '../appearance/cabecalho.php'; 
     include '../../lib/mylib.php'; 
     include '../../lib/database.php';
     include '../connection.php'; 
-    #$ISBN = $_GET['ISBN'];
     include '../dados_editar.php';
     include '../appearance/header.php';
+    echo var_dump($_POST);
 ?>
     
     <?= @abertura_dark(['titulo' => 'Gostaria de editar um livro?', 'id' => 'inserirLivros']) ?>
@@ -18,7 +19,7 @@
             <input type="text" value="<?= setValue('nomeLivro') ?>" name="NOME" placeholder="NOME" required style="color: white;"/>
             <textarea name="DESCRICAO" placeholder="DESCRIÇÃO" required style="color: white;"><?= setValue('descricao') ?></textarea>
             <div class="custom-file">
-                    <input type="file" accept="media/*" class="custom-file-input" id="imagem" name="imagem" required>                        
+                    <input type="file" accept="media/*" class="custom-file-input" id="imagem" name="imagem"  >                        
                     <label class="custom-file-label" for="imagem">Escolher arquivo</label>
             </div>
             <input type="submit" value="Editar" class="button"/>

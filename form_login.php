@@ -1,5 +1,9 @@
 <?php include './inc/appearance/cabecalho.php'; ?>
-<?php include './inc/connection.php'; ?>
+<?php include './inc/connection.php'; 
+
+echo session_status();
+
+?>
 </head>
 
 <body>
@@ -69,7 +73,7 @@
 ?>   
     <div class="container">
       <div class="login-form">
-      <form method="POST" action="login-processamento.php">
+      <form method="POST" action="./inc/controller/login-processamento.php">
           <h2 style="color:#fff; text-align: center;">LOGIN</h2>
           <div class="form-group" style="margin-top: 20px;"> 
           <input type="email" id="email" name="email" placeholder="Email" required class="rounded-input">

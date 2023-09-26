@@ -1,12 +1,18 @@
-<?php include "../appearance/cabecalho.php"; ?>
-
-<?php include '../../lib/mylib.php'; ?>
-<?php include '../connection.php'; ?>
-<?php include '../../lib/database.php'; ?>
-<?php include '../DAO/LivroDAO.php'; ?>
-<?php include '../appearance/header.php'; ?>
+<?php 
+    session_start();
+    include "../appearance/cabecalho.php"; 
+    include '../../lib/mylib.php'; 
+    include '../connection.php'; 
+    include '../../lib/database.php'; 
+    include '../DAO/LivroDAO.php'; 
+    include '../appearance/header.php'; 
+    
+?>
 
 </header>
+
+
+
 <?= @abertura_light(['titulo' => 'Livros já cadastrados', 'id' => 'LivrosCadastrados']) ?>
     <div class="section-livros">
         <div class="section-livros--photos">
@@ -15,6 +21,7 @@
     </div>
 </div>
 </section>
+
 
 <?= @abertura_dark(['titulo' => 'Gostaria de inserir um livro?', 'id' => 'inserirLivros']) ?>
     <div class="section-contact">

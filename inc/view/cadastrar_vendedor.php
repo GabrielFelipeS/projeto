@@ -1,13 +1,21 @@
 
-<?php include '../appearance/cabecalho.php'; ?>
+<?php 
+    session_start();
 
-<?php include '../../lib/mylib.php'; ?>
-<?php include '../connection.php'; ?>
-<?php include '../../lib/database.php'; ?>
-<?php include '../appearance/header.php'; ?>
-<?php include '../DAO/VendedorDAO.php';?>
+    include '../appearance/cabecalho.php'; 
+    include '../../lib/mylib.php'; 
+    include '../connection.php'; 
+    include '../../lib/database.php'; 
+    include '../appearance/header.php'; 
+    include '../DAO/VendedorDAO.php';
+  
+?>
 
 <style>
+    body {
+        background-color: black;
+    }
+
     .centralizar{
         width:100vw;
         max-width:1140px;
@@ -22,13 +30,14 @@
     }
 </style>
 
-<?= @abertura_light(['titulo' => 'Funcionarios', 'id' => 'JaCadastrados']) ?>
-    <div class="centralizar">
-        <?= @carregarfunc(); ?>
+<?php if(@validar($_SESSION['email'])): ?>
+    <?= @abertura_light(['titulo' => 'Funcionarios', 'id' => 'JaCadastrados']) ?>
+        <div class="centralizar">
+            <?= @carregarfunc(); ?>
+        </div>
     </div>
-
-</div>
-</section>
+    </section>
+<?php endif; ?>
 
 <?= @abertura_dark(['titulo' => 'Cadastrar funcionario', 'id' => 'JaCadastrados']) ?>
 <div class="section-contact">
