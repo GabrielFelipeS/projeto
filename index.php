@@ -6,16 +6,58 @@
     include './inc/connection.php'; 
     include './lib/database.php'; 
     include './inc/DAO/LivroDAO.php'; 
+
+     
   ?>
   
   </head>
   
   <body>
-      <?php include './inc/appearance/header.php'; ?>
+      <?php include './inc/appearance/header.php';  ?>
+      
       </header>
+
+      
+
+        <?php 
+    //INICO- trecho de confirmação de exclusão
+        $mensagem = '';
+        if (isset($_SESSION['compraRealizada'])) {
+            $mensagem = "<p style='display: flex; color: green; justify-content: center;'><strong>".$_SESSION['compraRealizada']."</strong></p>";
+    
+            unset($_SESSION['compraRealizada']);
+        }
+        ?>
+    
+        <?php if ($mensagem): ?>
+            <?= abertura_dark(['titulo' => 'Compra realizada', 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
+            </div>
+            </div>
+            </section>
+        <?php endif; ?>
+    
+    <script>
+        // Obtém a referência ao elemento da mensagem de erro
+        const mensagem = document.getElementById("mensagem");
+        // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+        let tempoExibicao = 10000; // 4 segundos
+        // Função para ocultar a mensagem após o tempo definido
+        function deletaMensagem() {
+            var node = document.getElementById("mensagem");
+            if (node.parentNode) {
+                node.parentNode.removeChild(node);
+            }
+        }
+        // Configura o temporizador para chamar a função após o tempo definido
+        setTimeout(deletaMensagem, tempoExibicao);
+        //FIM -trecho de confirmação de exclusão
+    </script>
+
+
       <main>
         <section class="banner">
             <div class="sliders">
+                
                 <?= slide_area(['titulo' => 'Melhores preços só na', 'titulo_colorido' => 'Bibliotex', 'subtitulo' => 'Ligue para: +00 0 1234 5678', 'botao' => 'Compre já!', 'button1' => 'actives buttonarea1', 'button2' => 'buttonarea1']) ?>
                 <?= slide_area(['titulo' => 'Garanta a oferta', 'titulo_colorido' => 'Compre seu o já', 'subtitulo' => 'Ligue para: +00 0 1234 5678', 'botao' => 'Compre já!', 'button1' => 'buttonarea2', 'button2' => 'actives buttonarea2']) ?>
             </div>
@@ -207,7 +249,7 @@
           // Obtém a referência ao elemento da mensagem de erro
           const sugestaoMensagem = document.getElementById("sugestaoMensagem");
           // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-          const tempoExibicao = 4000; // 4 segundos
+          tempoExibicao = 4000; // 4 segundos
           // Função para ocultar a mensagem após o tempo definido
           function ocultarMensagemSugestao() {
               sugestaoMensagem.style.display = "none"; // Oculta a mensagem de erro

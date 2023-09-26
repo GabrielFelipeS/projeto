@@ -9,21 +9,7 @@
                 <ul>
                 <li class="active"><a href="/projeto/index.php#">Home</a></li>
             <?php 
-            /*
-            if(isset($_SESSION['email'])) {   
-                $email = $_SESSION['email'];        
-
-                if(validar($email)) {
-                    echo '<li><a href="/projeto/inc/view/exibirCompras.php">Vendas</a></li>';
-
-                } else {
-
-                }
-
-                echo '<li><a href="/projeto/inc/controller/deslogar.php">Deslogar</a></li>';
-            } else {
-                echo '<li><a href="/projeto/form_login.php">Login</a></li>';
-            }*/
+            $mensagem = 'teste';
             
             if(validar($_SESSION['email'] ?? '')) {?> 
                 <li><a href="/projeto/inc/view/cadastrarExibirlivros.php">Editar/Excluir livros</a></li>
@@ -48,10 +34,15 @@
                 } else {
                     echo '<li><a href="/projeto/form_login.php">Login</a></li>';
                 }
+
+                
             ?>
 
                 </ul>
             </nav>
         </div>
     </div>
+
+
+    
    

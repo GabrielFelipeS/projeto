@@ -52,6 +52,8 @@ insert into vendedor VALUES (001, "1234567891233", "Gabriel Felipe", "2003/04/14
 insert into vendedor VALUES (002, "123456789124", "Gabriely Cavalcante", "2003/04/14", "Brasileiro");
 insert into vendedor VALUES (003, "12465887",	"Antônio Morrendo das Dores",	"1996-07-14",	"Brasileiro");
 
+select * from vendedor;
+
 create table if not exists endereco (
 	cpfDono varchar(13),
     bairro varchar(40),
@@ -102,9 +104,9 @@ CREATE TABLE if not exists usuario(
 	primary key(email)
 );
 
-select * from usuario;
-
 insert into usuario VALUES ("Administrador",	"2023-04-14", "(11) 2484-515",	"admin@admin.com",	"$2y$10$AL2JJvjD0dqPojG0B/jGGei8Rq851T0NhaMTSipXXsq8nFlYELBBa",	"fotosPerfil/Administrador.png"); 
 insert into usuario VALUES ("Teste Testando", "2023-04-14",	"(11) 2484-515",	"teste@teste.com",	"$2y$10$QgbyE/MweK0/HgwlVI5mqOc3R90KmsXXyf/qfiRFgYkzrqhfnPnci",	"fotosPerfil/Teste Testando.png"); 
+
+select * from usuario;
 
 -- drop table usuario

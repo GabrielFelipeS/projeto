@@ -9,12 +9,16 @@ class CompraDAO {
     }
 
     function cadastrarCompra($compra) {
-        $sql = "INSERT INTO $this->NomeTabela VALUES (?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("issids",
-        $compra->getId(),
-        $compra->getCpfComprador(), $compra->getISBNLivro(), $compra->getCodigoVendedor(), $compra->getValorCompra(), $compra->getCartao());
-        $stmt->execute();
+        try {
+            $sql = "INSERT INTO $this->NomeTabela VALUES (?, ?, ?, ?, ?, ?)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("issids",
+            $compra->getId(),
+            $compra->getCpfComprador(), $compra->getISBNLivro(), $compra->getCodigoVendedor(), $compra->getValorCompra(), $compra->getCartao());
+            $stmt->execute();
+        } catch(Exception $e) {
+            throw new Exception('Insira valores validos');
+        }
     }
 
     function modificarCompra($id, $compra) {

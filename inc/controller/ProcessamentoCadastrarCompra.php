@@ -6,25 +6,51 @@ include '../DAO/LivroDAO.php';
 include '../DAO/CompraDAO.php';
 include '../modelo/Compra.php';
 
-$ISBN = $_GET['ISBN'];
-$quantidade = $_POST['quantidade'];
+session_start();
+try {
+    $codigoVendedor = $_POST['codigo_vendedor'];
+    $cpf = $_POST['cpf'];
+    $quantidade = $_POST['quantidade'];
+    $cartao = $_POST['cartao'];
 
-$livroDAO = new LivroDAO($conn);
-$valorLivro = $livroDAO->getValorLivroByISBN($ISBN);
+    $_SESSION['codigoVendedor'] = $codigoVendedor;
+    $_SESSION['cpf'] = $cpf;
+    $_SESSION['quantidade'] = $quantidade;
+    $_SESSION['cartao'] = $cartao;
 
-$valorCompra = $valorLivro * $quantidade;
-echo $valorCompra;
+    if(!isset($_SESSION['email'])) {
+        throw new Exception('É necessario fazer login para comprar um livro.');
+    }
 
-$compra = new Compra(null, $_POST['cpf'], $ISBN, $_POST['codigo_vendedor'], $valorCompra, $_POST['cartao']);
 
-var_dump($compra);
 
-$compraDAO = new CompraDAO($conn);
-$compraDAO->cadastrarCompra($compra);
+    $ISBN = $_GET['ISBN'];
+
+    $livroDAO = new LivroDAO($conn);
+    $valorLivro = $livroDAO->getValorLivroByISBN($ISBN);
+
+    $valorCompra = $valorLivro * $quantidade;
+    echo $valorCompra;
+
+
+    $compra = new Compra(null, $cpf, $ISBN, $codigoVendedor, $valorCompra, $cartao);
+
+    var_dump($compra);
+
+    $compraDAO = new CompraDAO($conn);
+    $compraDAO->cadastrarCompra($compra);
+
+} catch (Exception $e) {
+    $_SESSION['mensagem'] = $e->getMessage();
+
+    header("Location: /projeto/inc/view/cadastrarCompra.php?ISBN=".$_GET['ISBN']);
+    exit(0);
+}
 
 #cpfComprador varchar(13),
 #ISBNlivro varchar(30),
 #codVendedor INT,
 #valor REAL,
 #cartao varchar(19)
+$_SESSION['compraRealizada'] = 'Sua compra foi realizada! Agradeçemos a preferencia';
 header("Location: ../view/ExibirCompras.php");

@@ -285,3 +285,9 @@ function validar($email) {
     $admin = "admin@admin.com";
     return (strcmp($email, $admin) == 0);
 }
+
+function mostrarMensagemDeAviso() {
+    if (isset($_SESSION['mensagem'])) {
+        include '../inc/view/mostrarMensagem.php';   
+    }
+}
