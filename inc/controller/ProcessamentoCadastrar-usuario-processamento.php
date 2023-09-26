@@ -15,13 +15,18 @@
     //conexão com o banco de dados;
         $usuario = new Usuario($conn);
     //cadastrar o usuário
-        if ($usuario->cadastrar($nome, $nascimento, $telefone, $email, $senha)){
-        // Redirecionar para a página de sucesso após o cadastro
-            //header("Location: ../../form-cadastrar-usuario.php");
-            header('Location: ../../form_login.php');
-            exit();
+
+        if($usuario->verificarEmailExistente($email)){
+           header('Location: ../../form-cadastrar-usuario.php?erro=email_existente');
         }else{
-            echo "erro! tente novamente!";
+            if ($usuario->cadastrar($nome, $nascimento, $telefone, $email, $senha)){
+            // Redirecionar para a página de sucesso após o cadastro
+                //header("Location: ../../form-cadastrar-usuario.php");
+                header('Location: ../../form_login.php?sucesso=cadastro_realizado');
+                exit();
+            }else{
+                echo "Erro! tente novamente!";
+            }
         }
     }
 

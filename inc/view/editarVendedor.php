@@ -48,7 +48,7 @@
                 <input type="text" value="<?= setValue('complemento') ?>" name="complemento" placeholder="COMPLEMENTO" style="color: white;"/>
             </div>
   
-            <input type="submit" value="Envie a mensagem" class="button"/>
+            <input type="submit" value="Cadastrar" class="button"/>
         </form>
     </div>
 </div>

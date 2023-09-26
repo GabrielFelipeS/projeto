@@ -9,7 +9,6 @@
   <body>
       <?php include './inc/appearance/header.php'; ?>
       </header>
-
       <main>
         <section class="banner">
             <div class="sliders">
@@ -183,9 +182,41 @@
         </section>
 
 
-        <?=  abertura_light(['titulo' => 'Sugestões', 'descricao' => 'Our Agency Located in Melbourne, Australia', 'id' => 'Sugestoes'])?>
-        <div class="section-contact">
-            <form method="POST" enctype="multipart/form-data" action="./inc/controller/sugestao.php">
+        <?=  abertura_light(['titulo' => 'Sugestões', 'descricao' => 'Deixe sua sugestão aqui', 'id' => 'Sugestoes'])?>
+        
+
+    <?php
+          $mensagemSugestao = '';
+          $sugestao = $_GET['Sugestoes?sugestao'] ?? '';
+      
+          if ($sugestao == 'recebida') {
+              $mensagemSugestao = "<p style='display: flex; color: green; justify-content: center;'><strong>Sugestao recebida.</strong></p>";
+          }
+          ?>
+          <?php if ($mensagemSugestao): ?>
+              <div class="sugestao-mensagem" id="sugestaoMensagem">
+                  <?= $mensagemSugestao ?>
+              </div>
+          <?php endif; ?>
+      
+          <script>
+          // Obtém a referência ao elemento da mensagem de erro
+          const sugestaoMensagem = document.getElementById("sugestaoMensagem");
+          // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+          const tempoExibicao = 4000; // 4 segundos
+          // Função para ocultar a mensagem após o tempo definido
+          function ocultarMensagemSugestao() {
+              sugestaoMensagem.style.display = "none"; // Oculta a mensagem de erro
+          }
+          // Configura o temporizador para chamar a função após o tempo definido
+          setTimeout(ocultarMensagemSugestao, tempoExibicao);
+          //FIM -trecho de confirmação de exclusão
+      </script>
+      
+      
+
+        <div class="section-contact" id= 'Sugestoes?sugestao=recebida'>
+            <form method="POST" enctype="multipart/form-data" action="./inc/controller/sugestao.php" >
                 <div class="section-contact--split">
                     <input type="text" name="name" placeholder="NOME" required/>
                     <input type="text" name="email" placeholder="EMAIL" required/>

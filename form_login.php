@@ -47,6 +47,9 @@
       margin-bottom: 20px;
     }
   </style>
+
+
+
   <header>
     <div class="header">
       <div class="logo">
@@ -58,6 +61,12 @@
   <main>
   <section>
 
+  <?php
+   $sucesso = $_GET['sucesso'] ?? '';
+   if ($sucesso == 'cadastro_realizado'){
+    echo "<h4 style='display: flex; color: green; justify-content: center;'><strong>Cadastro realizado!</strong></h4><p style='display: flex; color: green; justify-content: center;'>Faça seu login.</p>";
+   }
+?>   
     <div class="container">
       <div class="login-form">
       <form method="POST" action="login-processamento.php">

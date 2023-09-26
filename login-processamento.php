@@ -22,8 +22,8 @@ function verificarLogin($email, $senha) {
         $row = $result->fetch_assoc();
         $senhaHashArmazenada = $row["senha"];
 
-        
-        if (hash('sha256', $senha) === $senhaHashArmazenada) {
+        if (password_verify($senha, $senhaHashArmazenada)) {
+
             $stmt->close();
             $conn->close();
             return true;
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php");
         exit();
     } else {
-        $_SESSION["login_error"] = "Email ou senha incorretos";
+        $_SESSION["login_error"] = "<h5 style='display: flex; color: red; justify-content: center;'><strong>E-mail ou senha incorretos!</h5>";
         header("Location: form_login.php");
         exit();
     }

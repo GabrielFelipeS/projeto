@@ -12,14 +12,13 @@
         </div>
         <h2>BIBLIOTEX</h2>
 
-
        <style>
           body {
               background-color: black;
           }
 
           .section-contact {
-            padding: 40px;
+            padding: 17px;
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -47,17 +46,19 @@
     </header>
 
 <body>
+  
+
+
         <?php 
-            if($_GET['erro'] == 1) {
+           $erro = $_GET['erro'] ?? '';
 
-              //echo "<h1 style='display: flex; color: red; justify-content: center;'><strong>Email já existe</strong></h1>";
+           if ($erro == 'email_existente'){
+            echo "<h4 style='display: flex; color: red; justify-content: center;'><strong>E-mail já cadastrado.</strong></h4><p style='display: flex; color: red; justify-content: center;'><strong>Tente novamente!</strong></p>";
+           }
 
-              echo '<script>
-                alert("ERRO!\nEmail já existe!");
-              </script>';
-             
-            }
+
         ?>
+   
      
 <?= @abertura_dark(['titulo' => 'Cadastro', 'id' => 'cadastroUsuario']) ?>
       <div class="section-contact">
@@ -73,7 +74,7 @@
               <input type="password" id = "senhaCad" name="senha" placeholder="Senha" required style="color: white; "/>
 
               <div class="custom-file">
-                  <input type="file" accept="image/*" class="custom-file-input" id="fotoPerfil" name="fotoPerfil" required/>                        
+                  <input type="file" accept="image/*" class="custom-file-input" id="fotoPerfil" name="fotoPerfil" >                        
                   <label class="custom-file-label" for="fotoPerfil">Escolher arquivo</label>
                 </div>
 
