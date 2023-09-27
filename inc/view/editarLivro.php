@@ -14,7 +14,7 @@
         <form method="POST" enctype="multipart/form-data" action="/projeto/inc/controller/salvarAlteracoes.php?ISBN=<?=$_GET['ISBN']?>">
             <div class="section-contact--split">
                 <input type="text" value="<?= setValue('ISBN') ?>" name="ISBN" placeholder="ISBN" required style="color: white;"/>
-                <input type="text" value="<?= setValue('valorLivro') ?>" name="VALOR" placeholder="VALOR" required style="color: white;"/>
+                <input type="text" value="<?= setValue('valorLivro') ?>" name="VALOR" placeholder="VALOR"  required style="color: white;"/>
             </div>
             <input type="text" value="<?= setValue('nomeLivro') ?>" name="NOME" placeholder="NOME" required style="color: white;"/>
             <textarea name="DESCRICAO" placeholder="DESCRIÇÃO" required style="color: white;"><?= setValue('descricao') ?></textarea>

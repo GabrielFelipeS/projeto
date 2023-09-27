@@ -74,12 +74,12 @@
             <!-- ./inc/salvarAlteracoes.php?ISBN=<#?=$_GET['ISBN']?> -->
                 <form method="POST" enctype="multipart/form-data" action="../controller/<?=$link?>">
                     <div class="section-contact--split">
-                        <input type="text" value="<?= setValue('codVendedor') ?>" name="codigo_vendedor" placeholder="CODIGO DO VENDEDOR" required />
-                        <input type="text" value="<?= setValue('cpfComprador') ?>" name="cpf" placeholder="CPF" required />
+                        <input type="text" value="<?= $_SESSION['codigoVendedor'] ?? '' ?>" name="codigo_vendedor" placeholder="CODIGO DO VENDEDOR" required />
+                        <input type="text" value="<?= $_SESSION['cpf'] ?? '' ?>" name="cpf" placeholder="CPF" required />
                     </div>
                     <div class="section-contact--split">
-                        <input type="text" value="<?= $quantidade ?>" name="quantidade" placeholder="QUANTIDADE" required/>
-                        <input type="text" value="<?= setValue('cartao') ?>" name="cartao" placeholder="CARTÃO" required />
+                        <input type="text" name="quantidade" value="<?= $_SESSION['quantidade'] ?? '' ?>" placeholder="QUANTIDADE" required/>
+                        <input type="text" value="<?= $_SESSION['cartao'] ?? '' ?>" name="cartao" placeholder="CARTÃO" required />
                     </div>
                     <input type="submit" value="Efetuar Compra!" class="button"/>
                 </form>

@@ -52,5 +52,8 @@ try {
 #codVendedor INT,
 #valor REAL,
 #cartao varchar(19)
+
+unset($_SESSION['codigoVendedor'], $_SESSION['cpf'], $_SESSION['quantidade'], $_SESSION['cartao']);
+
 $_SESSION['compraRealizada'] = 'Sua compra foi realizada! Agradeçemos a preferencia';
 header("Location: ../view/ExibirCompras.php");

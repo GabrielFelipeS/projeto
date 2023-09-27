@@ -1,14 +1,30 @@
 <?php
 session_start();
+include '../connection.php';
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+
+    if (verificarLogin($email, $senha)) {
+        session_start();
+        $_SESSION['email'] = $email;
+        $_SESSION['senha'] = $senha;
+
+        header("Location: /projeto/index.php");
+        exit();
+    } else {
+        $_SESSION["login_error"] = "<h5 style='display: flex; color: red; justify-content: center;'><strong>E-mail ou senha incorretos!</h5>";
+        header("Location: /projeto/form_login.php");
+        exit();
+    }
+}
+
 
 function verificarLogin($email, $senha) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "bibliotex";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
+    global $conn;
+    
     if ($conn->connect_error) {
         die("Erro na conexão com o banco de dados: " . $conn->connect_error);
     }
@@ -35,23 +51,6 @@ function verificarLogin($email, $senha) {
     return false;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-
-    if (verificarLogin($email, $senha)) {
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
-
-        header("Location: /projeto/index.php");
-        exit();
-    } else {
-        $_SESSION["login_error"] = "<h5 style='display: flex; color: red; justify-content: center;'><strong>E-mail ou senha incorretos!</h5>";
-        header("Location: /projeto/form_login.php");
-        exit();
-    }
-}
 ?>
 
 

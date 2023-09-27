@@ -26,8 +26,8 @@
     echo '<br>Livro: ';
     var_dump($livro);
     $livroDAO = new livroDAO($conn);
-    //$livroDAO->modificar($livro, $ISBN);
+    $livroDAO->modificar($livro, $ISBN);
 
     #modificar('livros', ['ISBN = "'.$_POST['ISBN'].'"','valorLivro = "'. $_POST['VALOR'].'"', 'nomeLivro = "'.$_POST['NOME'].'"', 'descricao = "'.$_POST['DESCRICAO'].'"', 'nome_da_foto = "'.$caminho.'"'], "ISBN = $ISBN");
  
-    //header('Location: ../view/CadastrarExibirLivros.php');
+    header('Location: ../view/CadastrarExibirLivros.php');
