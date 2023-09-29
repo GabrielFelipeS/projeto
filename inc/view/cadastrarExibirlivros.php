@@ -17,16 +17,15 @@
         
         $mensagem = '';
         if (isset($_SESSION['mensagem'])):
-            $mensagem = "<h4 style='display: flex; color: ".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></h4>";
+            $mensagem = "<h6 style='display: flex; color: ".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></h6>";
     
             unset($_SESSION['mensagem'], $_SESSION['cor']);
         ?>
     
             <?php if ($mensagem): ?>
-                <?= abertura_light(['titulo' => '', 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
+                <div class="default light" id="mensagem">
+                    <?= $mensagem ?>
                 </div>
-                </div>
-                </section>
             <?php endif; ?>
         
             <script id="script">

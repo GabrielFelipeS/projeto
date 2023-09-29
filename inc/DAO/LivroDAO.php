@@ -63,10 +63,15 @@ class LivroDAO {
     }
 
     function deleteByID($ISBN) {
-        $sql = "DELETE FROM $this->NomeTabela WHERE ISBN = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("i", $ISBN);
-        $stmt->execute();
+            try{
+                $sql = "DELETE FROM $this->NomeTabela WHERE ISBN = ?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bind_param("i", $ISBN);
+                $stmt->execute();
+                return true;
+            } catch(Exception $e) {
+                return false;
+            }
     }
     
     function inserirLivro($livro) {

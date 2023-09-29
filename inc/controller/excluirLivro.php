@@ -12,9 +12,14 @@ if(!validar($_SESSION['email'])) {
 
 $ISBN = $_GET['ISBN'];
 $livroDAO = new LivroDAO($conn);
-$livroDAO->deleteByID($ISBN);
+if($livroDAO->deleteByID($ISBN)) {
+    $_SESSION['mensagem'] = 'Livro excluida com sucesso!';
+    $_SESSION['cor'] = 'green';
+} else {
+    $_SESSION['mensagem'] = 'Falha ao excluir o livro, existe ao menos uma compra desse livro!';
+    $_SESSION['cor'] = 'red';
+}
 
-$_SESSION['mensagem'] = 'Livro excluida com sucesso!';
-$_SESSION['cor'] = 'red';
+
 
 header('Location: ../view/CadastrarExibirLivros.php');

@@ -10,7 +10,7 @@
 */
 
 function slide_area($data){
-    $html = '<div class="slide "><div class="slidearea sem_fundo"><h1>'.$data['titulo'].'<br/><span>'.$data['titulo_colorido'].'</span></h1><h2>'.$data['subtitulo'].'</h2><a href="" class="button">'.$data['botao'].'!</a></div>
+    $html = '<div class="slide "><div class="slidearea sem_fundo"><h1>'.$data['titulo'].'<br/><span>'.$data['titulo_colorido'].'</span></h1><h2>'.$data['subtitulo'].'</h2><a href="#Livros" class="button">'.$data['botao'].'!</a></div>
                 <div class="sliders-pointers ">
                   <div class="pointer '. $data['button1'].'"></div>
                   <div class="pointer '. $data['button2'].'"></div>
