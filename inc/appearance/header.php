@@ -27,9 +27,8 @@
             <?php }?>
 
             <?php 
-                echo '<li><a href="/projeto/index.php#Sugestoes">Sugestoes</a></li>';
-
                 if(isset($_SESSION['email'])) {
+                    echo '<li><a href="/projeto/index.php#Sugestoes">Sugestoes</a></li>';
                     echo '<li><a href="/projeto/inc/controller/deslogar.php">Deslogar</a></li>';
                 } else {
                     echo '<li><a href="/projeto/form_login.php">Login</a></li>';
