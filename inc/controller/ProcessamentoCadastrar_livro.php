@@ -5,8 +5,9 @@
     include '../DAO/LivroDAO.php';
     include '../modelo/Livro.php';
 
+    session_start();
     $ISBN = $_POST['ISBN']; 
-
+    
     //$BuscarNoBanco = get('livros', "ISBN = $ISBN");
     #die(print($BuscarNoBanco['nomeLivro']));
 
@@ -30,7 +31,7 @@
         $_SESSION['color'] = 'green';
         //create('livros', [$ISBN,  $nome, $valor, $descricao, $caminho]);    
     } else {
-        $_SESSION['mensagem'] = 'Falha ao inserir o livro!';
+        $_SESSION['mensagem'] = 'Falha ao cadastrar o livro!';
         $_SESSION['color'] = 'red';
     }
 

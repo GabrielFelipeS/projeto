@@ -13,8 +13,11 @@
 
 <?php 
     //INICO- trecho de confirmação de exclusão
+        #var_dump($_SESSION);
+        
         $mensagem = '';
         if (isset($_SESSION['mensagem'])) {
+            $titulo = (strcmp('green', $_SESSION['color']) == 0)? 'Cadastro realizado!' : 'ISBN já existe!';
             $mensagem = "<p style='display: flex; color: ".$_SESSION['color']."; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></p>";
     
             unset($_SESSION['mensagem']);
@@ -23,7 +26,7 @@
         ?>
     
         <?php if ($mensagem): ?>
-            <?= abertura_dark(['titulo' => 'Compra realizada', 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
+            <?= abertura_light(['titulo' => $titulo, 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
             </div>
             </div>
             </section>
