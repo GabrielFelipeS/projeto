@@ -16,6 +16,7 @@
 
     echo var_dump($_FILES);
     if(!empty($_FILES['imagem']['name'])) {
+        echo 'teste';
         $ext = strtolower(substr($_FILES['imagem']['name'],-4)); //Pegando extensão do arquivo
         $new_name =  $ISBN .'.'.$ext; //Definindo um novo nome para o arquivo
         $dir = '../../media/'; //Diretório para uploads, coloquei em lib pra facilitar o senhor achar
@@ -29,10 +30,16 @@
 
     echo '<br>Livro: ';
     var_dump($livro);
+
     $livroDAO = new livroDAO($conn);
+
+    echo '<br>CAMINHO: ' . $caminho;
+    
     if(empty($caminho)) {
+        echo '<br>SEM IMAGE: ';
         $livroDAO->modificarSemImagem($livro, $ISBN);
     } else {
+        echo '<br>COM IMAGE: ';
         $livroDAO->modificar($livro, $ISBN);
     }
    
