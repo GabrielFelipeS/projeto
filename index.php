@@ -234,11 +234,11 @@
         
 
         <?php
-            $mensagemSugestao = '';
-            $sugestao = $_GET['Sugestoes?sugestao'] ?? '';
+            $mensagemSugestao = '';      
         
-            if ($sugestao == 'recebida') {
+            if (isset($_SESSION['mensagemSugestao'])) {
                 $mensagemSugestao = "<p style='display: flex; color: green; justify-content: center;'><strong>Sugestao recebida.</strong></p>";
+                unset($_SESSION['mensagemSugestao']);
             }
             ?>
             <?php if ($mensagemSugestao): ?>
@@ -247,7 +247,7 @@
                 </div>
             <?php endif; ?>
         
-            <script>
+        <script>
             // Obtém a referência ao elemento da mensagem de erro
             const sugestaoMensagem = document.getElementById("sugestaoMensagem");
             // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
