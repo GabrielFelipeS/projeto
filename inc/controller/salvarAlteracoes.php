@@ -21,9 +21,7 @@
         $dir = '../../media/'; //Diretório para uploads, coloquei em lib pra facilitar o senhor achar
         move_uploaded_file($_FILES['imagem']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo 
         $caminho = 'media/'.$new_name;
-    } else {
-        $caminho = $_POST['nome_da_foto'];
-    }
+    } 
     
     echo '<br><br><br>POST: ';
     var_dump($_POST);
@@ -32,8 +30,16 @@
     echo '<br>Livro: ';
     var_dump($livro);
     $livroDAO = new livroDAO($conn);
-    $livroDAO->modificar($livro, $ISBN);
+    if(empty($caminho)) {
+        $livroDAO->modificarSemImagem($livro, $ISBN);
+    } else {
+        $livroDAO->modificar($livro, $ISBN);
+    }
+   
 
     #modificar('livros', ['ISBN = "'.$_POST['ISBN'].'"','valorLivro = "'. $_POST['VALOR'].'"', 'nomeLivro = "'.$_POST['NOME'].'"', 'descricao = "'.$_POST['DESCRICAO'].'"', 'nome_da_foto = "'.$caminho.'"'], "ISBN = $ISBN");
- 
+
+    $_SESSION['mensagem'] = 'Livro editado com sucesso!';
+    $_SESSION['cor'] = 'green';
+
     header('Location: ../view/CadastrarExibirLivros.php');

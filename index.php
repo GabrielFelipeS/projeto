@@ -22,10 +22,10 @@
         <?php 
     //INICO- trecho de confirmação de exclusão
         $mensagem = '';
-        if (isset($_SESSION['compraRealizada'])):
-            $mensagem = "<p style='display: flex; color: green; justify-content: center;'><strong>".$_SESSION['compraRealizada']."</strong></p>";
+        if (isset($_SESSION['mensagem'])):
+            $mensagem = "<p style='display: flex; color: green; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></p>";
     
-            unset($_SESSION['compraRealizada']);
+            unset($_SESSION['mensagem']);
         
         ?>
     

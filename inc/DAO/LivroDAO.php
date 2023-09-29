@@ -15,6 +15,13 @@ class LivroDAO {
         $stmt->execute();
     }
 
+    function modificarSemImagem($livro, $ISBN) {
+        $sql = "UPDATE $this->NomeTabela SET isbn = ?, nomeLivro = ? , valorLivro = ? , descricao = ? WHERE ISBN = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("ssdss", $ISBN, $livro->getnomeLivro(), $livro->getValorLivro(), $livro->getDescricao(), $ISBN);
+        $stmt->execute();
+    }
+
     function getAll() {
         $sql = "SELECT * FROM $this->NomeTabela";
         $stmt = $this->conn->query($sql);

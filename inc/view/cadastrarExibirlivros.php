@@ -16,39 +16,41 @@
         #var_dump($_SESSION);
         
         $mensagem = '';
-        if (isset($_SESSION['mensagem'])) {
-            $titulo = (strcmp('green', $_SESSION['color']) == 0)? 'Cadastro realizado!' : 'ISBN já existe!';
-            $mensagem = "<p style='display: flex; color: ".$_SESSION['color']."; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></p>";
+        if (isset($_SESSION['mensagem'])):
+            $mensagem = "<h4 style='display: flex; color: ".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem']."</strong></h4>";
     
-            unset($_SESSION['mensagem']);
-            unset($_SESSION['color']);
-        }
+            unset($_SESSION['mensagem'], $_SESSION['cor']);
         ?>
     
-        <?php if ($mensagem): ?>
-            <?= abertura_light(['titulo' => $titulo, 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
-            </div>
-            </div>
-            </section>
-        <?php endif; ?>
-    
-    <script>
-        // Obtém a referência ao elemento da mensagem de erro
-        const mensagem = document.getElementById("mensagem");
-        // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-        let tempoExibicao = 10000; // 4 segundos
-        // Função para ocultar a mensagem após o tempo definido
-        function deletaMensagem() {
-            var node = document.getElementById("mensagem");
-            if (node.parentNode) {
-                node.parentNode.removeChild(node);
-            }
-        }
-        // Configura o temporizador para chamar a função após o tempo definido
-        setTimeout(deletaMensagem, tempoExibicao);
-        //FIM -trecho de confirmação de exclusão
-    </script>
+            <?php if ($mensagem): ?>
+                <?= abertura_light(['titulo' => '', 'descricao' => $mensagem, 'id' => 'mensagem']) ?>
+                </div>
+                </div>
+                </section>
+            <?php endif; ?>
+        
+            <script id="script">
+            // Obtém a referência ao elemento da mensagem de erro
+            //const mensagem = document.getElementById("mensagem");
+            // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+            let tempoExibicao = 10000; // 10 segundos
+            // Função para ocultar a mensagem após o tempo definido
+            function deletaMensagem() {
+                var node = document.getElementById("mensagem");
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
 
+                var node = document.getElementById("script");
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
+            }
+            // Configura o temporizador para chamar a função após o tempo definido
+            setTimeout(deletaMensagem, tempoExibicao);
+            //FIM -trecho de confirmação de exclusão
+        </script>
+    <?php endif; ?>
 <?= @abertura_light(['titulo' => 'Livros já cadastrados', 'id' => 'LivrosCadastrados']) ?>
     <div class="section-livros">
         <div class="section-livros--photos">

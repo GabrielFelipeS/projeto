@@ -25,20 +25,21 @@
         $quantidade = $_POST['valor']/$dadosDoLivro['valorLivro'];
     } else {
         $quantidade = '';
-    }*/
+    }
     
     var_dump($_SESSION);
     var_dump($_POST);
     var_dump($_GET);
-
+    */
     $ISBN = $_GET['ISBN'] ?? '';
     $id = $_GET['id'] ?? '';
     $dadosDoLivro = get('livros', "ISBN = $ISBN");
 
     $mensagemBotao = $_GET['mensagemBotao'] ?? 'Efetuar Compra!';
     $link = empty($_GET['link'])? 'ProcessamentoCadastrarCompra.php?ISBN='.$ISBN : $_GET['link'].$id.'&ISBN='.$ISBN;
+    /*
     echo '<br>' . $_GET['link'] . '<br>';
-    echo '<br>' . $link . '<br>';
+    echo '<br>' . $link . '<br>';*/
 
     if(isset($_GET['id'])) {
         $titulo = $_GET['titulo'];

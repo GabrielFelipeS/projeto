@@ -55,5 +55,7 @@ try {
 
 unset($_SESSION['codigoVendedor'], $_SESSION['cpf'], $_SESSION['quantidade'], $_SESSION['cartao']);
 
-$_SESSION['compraRealizada'] = 'Sua compra foi realizada! Agradeçemos a preferencia';
+$_SESSION['mensagem'] = 'Sua compra foi realizada! Agradeçemos a preferencia';
+$_SESSION['cor'] = 'green';
+
 header("Location: ../view/ExibirCompras.php");

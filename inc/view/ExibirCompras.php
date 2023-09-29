@@ -26,7 +26,7 @@
     if (isset($_SESSION['mensagem'])):
         $mensagem = "<p style='display: flex; color:".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem'].".</strong></p>";
 
-        unset($_SESSION['color'], $_SESSION['mensagem']);
+        unset($_SESSION['cor'], $_SESSION['mensagem']);
     ?>
       <?php if ($mensagem): ?>
           <div class="mensagem" id="mensagem">

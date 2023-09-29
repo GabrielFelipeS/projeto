@@ -6,7 +6,7 @@
     include '../connection.php'; 
     include '../dados_editar.php';
     include '../appearance/header.php';
-    var_dump($_POST);
+    //var_dump($_POST);
 ?>
     
     <?= @abertura_dark(['titulo' => 'Gostaria de editar um livro?', 'id' => 'inserirLivros']) ?>
