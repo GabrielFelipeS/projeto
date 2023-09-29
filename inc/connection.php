@@ -2,6 +2,6 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "senha";
+$password = "";
 
 $conn = mysqli_connect($servername, $username, $password, 'bibliotex');

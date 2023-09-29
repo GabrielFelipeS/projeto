@@ -67,9 +67,7 @@ create table if not exists endereco (
 );
 
 insert into endereco VALUES ("1234567891233", "Pimentas", "Av. Salgado FIlho","Guarulhos","São Paulo", "07115-0001", "Dani Salgados");
-
 insert into endereco VALUES ("123456789124", "Pimentas", "Av. Salgado FIlho","Guarulhos","São Paulo", "07115-0001", "Dani Salgados");
-
 insert into endereco VALUES ("12465887",	"Pimentas",	"Av. Salgado FIlho", "Guarulhos", "São Paulo", "07115-000", "Dani Salgados");
 
 create table if not exists compras (

@@ -26,7 +26,12 @@
 
         $livro = new Livro($ISBN,  $nome, $valor, $descricao, $caminho);
         $livroDAO->inserirLivro($livro);
+        $_SESSION['mensagem'] = 'Livro inserir com sucesso!';
+        $_SESSION['color'] = 'green';
         //create('livros', [$ISBN,  $nome, $valor, $descricao, $caminho]);    
+    } else {
+        $_SESSION['mensagem'] = 'Falha ao inserir o livro!';
+        $_SESSION['color'] = 'red';
     }
 
 header('Location: ../view/CadastrarExibirlivros.php');
