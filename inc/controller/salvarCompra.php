@@ -14,6 +14,10 @@ echo '</br>Valor: '.$valor;
 
 session_start();
 
+if(!validar($_SESSION['email'])) {
+    header('Location: /projeto/index.php');
+}
+
 $ID = $_GET['id'];
 $ISBN = $_GET['ISBN'];
 $quantidade = $_POST['quantidade'];

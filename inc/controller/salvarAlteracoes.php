@@ -5,6 +5,12 @@
     include '../DAO/livroDAO.php';
     include '../modelo/Livro.php';
 
+    session_start();
+
+    if(!validar($_SESSION['email'])) {
+        header('Location: /projeto/index.php');
+    }
+
     $ISBN = $_GET['ISBN'];
     $caminho = '';
 

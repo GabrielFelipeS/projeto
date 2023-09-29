@@ -4,6 +4,11 @@ include '../../lib/database.php';
 include '../connection.php'; 
 include '../DAO/CompraDAO.php';
 session_start();
+
+if(!validar($_SESSION['email'])) {
+    header('Location: /projeto/index.php');
+}
+
 $ID = $_GET['id'];
 
 $compraDAO = new CompraDAO($conn);

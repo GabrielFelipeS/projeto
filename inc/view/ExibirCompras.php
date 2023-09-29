@@ -23,40 +23,39 @@
 <?php 
 //INICO- trecho de confirmação de exclusão
     $mensagem = '';
-    if (isset($_SESSION['mensagem'])) {
+    if (isset($_SESSION['mensagem'])):
         $mensagem = "<p style='display: flex; color:".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem'].".</strong></p>";
 
         unset($_SESSION['color'], $_SESSION['mensagem']);
-    }
-
     ?>
-    <?php if ($mensagem): ?>
-        <div class="erro-mensagem" id="mensagem">
-            <?= $mensagem ?>
-        </div>
+      <?php if ($mensagem): ?>
+          <div class="mensagem" id="mensagem">
+              <?= $mensagem ?>
+          </div>
+      <?php endif; ?>
+
+        <script id="script">
+            // Obtém a referência ao elemento da mensagem de erro
+            //const mensagem = document.getElementById("mensagem");
+            // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+            let tempoExibicao = 10000; // 10 segundos
+            // Função para ocultar a mensagem após o tempo definido
+            function deletaMensagem() {
+                var node = document.getElementById("mensagem");
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
+
+                var node = document.getElementById("script");
+                if (node.parentNode) {
+                    node.parentNode.removeChild(node);
+                }
+            }
+            // Configura o temporizador para chamar a função após o tempo definido
+            setTimeout(deletaMensagem, tempoExibicao);
+            //FIM -trecho de confirmação de exclusão
+      </script>
     <?php endif; ?>
-
-      <script id="script">
-          // Obtém a referência ao elemento da mensagem de erro
-          //const mensagem = document.getElementById("mensagem");
-          // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-          let tempoExibicao = 10000; // 4 segundos
-          // Função para ocultar a mensagem após o tempo definido
-          function deletaMensagem() {
-              var node = document.getElementById("mensagem");
-              if (node.parentNode) {
-                  node.parentNode.removeChild(node);
-              }
-
-              var node = document.getElementById("script");
-              if (node.parentNode) {
-                  node.parentNode.removeChild(node);
-              }
-          }
-          // Configura o temporizador para chamar a função após o tempo definido
-          setTimeout(deletaMensagem, tempoExibicao);
-          //FIM -trecho de confirmação de exclusão
-    </script>
 
 
 <div style="color: black;">

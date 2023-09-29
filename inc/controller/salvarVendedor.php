@@ -7,6 +7,12 @@
     include '../modelo/Vendedor.php';
     include '../modelo/Endereco.php';
 
+    session_start();
+
+    if(!validar($_SESSION['email'])) {
+        header('Location: /projeto/index.php');
+    }
+
     $cpf = $_GET['cpf'];
     $vendedor = new Vendedor($_POST['CODIGO_VENDEDOR'], $_POST['CPF'], $_POST['NOME'], $_POST['nascimento'] ,$_POST['nacionalidade']);
     $vendedorDAO = new VendedorDAO($conn);

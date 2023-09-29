@@ -197,6 +197,10 @@ function rfile($filename){
     return $slide;
 }
 
+/**
+ * Carrega todos os livros do banco de dados
+ * @return string | codigo HTML
+ */
 function carregarLivros() {
     $html = "";
     GLOBAL $conn;
@@ -209,10 +213,21 @@ function carregarLivros() {
     echo $html;
 }
 
+
+/**
+ * Carrega todos os livros do banco de dados, mostrando suas informações
+ * @return string | codigo HTML
+ */
+
 function carregarInformacoesDoLivro($livro) {
     $livro['nome_da_foto'] = '/projeto//'.$livro['nome_da_foto'];
     return ['titulo' => $livro['nomeLivro'], 'paragrafo' => $livro['descricao'], 'imagem' => $livro['nome_da_foto'], 'botao' => '<a href="/projeto/inc/view/cadastrarCompra.php?ISBN='.$livro['ISBN'].'"><button type="button" class="btn btn-primary">Comprar</button></a>'];
 }
+
+/**
+ * Carrega todos os livros do banco de dados, mostrando opçoes para deletar e excluir
+ * @return string | codigo HTML
+ */
 
 function carregarLivrosParaEditar() {
     $html = "";

@@ -5,6 +5,12 @@ include '../connection.php';
 include '../DAO/VendedorDAO.php'; 
 include '../DAO/EnderecoDAO.php'; 
 
+session_start();
+
+if(!validar($_SESSION['email'])) {
+    header('Location: /projeto/index.php');
+}
+
 $cod = $_GET['cod'];
 $VendedorDAO = new VendedorDAO($conn);
 $cpf = $VendedorDAO->getCPFByCod($cod);

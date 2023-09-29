@@ -4,6 +4,12 @@ include '../../lib/database.php';
 include '../connection.php'; 
 include '../DAO/LivroDAO.php';
 
+session_start();
+
+if(!validar($_SESSION['email'])) {
+    header('Location: /projeto/index.php');
+}
+
 $ISBN = $_GET['ISBN'];
 $livroDAO = new LivroDAO($conn);
 $livroDAO->deleteByID($ISBN);
