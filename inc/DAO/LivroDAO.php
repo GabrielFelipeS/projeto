@@ -26,6 +26,14 @@ class LivroDAO {
         #return $stmt->fetch();
     }
 
+    function getByISBN($isbn) {
+        $sql = "SELECT * FROM $this->NomeTabela WHERE ISBN = ".$isbn;
+        $stmt = $this->conn->query($sql);
+        $livro = $stmt->fetch_assoc();
+        return $livro;
+        #return $stmt->fetch();
+    }
+
     function trueIfNotExist($ISBN) {
         $sql = "SELECT * FROM $this->NomeTabela WHERE ISBN = ?";
         $stmt = $this->conn->prepare($sql);

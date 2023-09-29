@@ -18,11 +18,24 @@
     $link = empty($partes[3])? 'ProcessamentoCadastrarCompra.php?ISBN='.$ISBN : "../controller/".$partes[3].$id.'&ISBN='.$ISBN;
 
     $dadosDoLivro = get('livros', "ISBN = $ISBN");
+    
+    /*
     if($id != '') {
         $_POST = get('compras', "id = $id");
         $quantidade = $_POST['valor']/$dadosDoLivro['valorLivro'];
     } else {
         $quantidade = '';
+    }*/
+    var_dump($_SESSION);
+    var_dump($_POST);
+    var_dump($_GET);
+    if(isset($id)) {
+        $_POST = get('compras', "id = $id");
+        var_dump($_POST);
+        $_SESSION['codigoVendedor'] = $_POST['codVendedor'];
+        $_SESSION['cartao'] = $_POST['cartao'];
+        $_SESSION['cpf'] = $_POST['cpfComprador'];
+        $_SESSION['quantidade'] =  $_POST['valor']/$dadosDoLivro['valorLivro'];;
     }
 
 ?>
@@ -88,5 +101,7 @@
 </div>
 </section>
 
+
+<?php unset($_SESSION['codigoVendedor'], $_SESSION['cartao'], $_SESSION['cpf'], $_SESSION['quantidade']); ?>
 <?php include '../apparance/footer.php'; ?>
 <?php include '../apparance/rodape.php'; ?>
