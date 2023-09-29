@@ -8,7 +8,7 @@
 
     //var_dump($_SESSION);
     //var_dump($_POST);
-
+/*
     $partes = explode("-",$_GET['ISBN']);
     $ISBN = $partes[0];
     $id = empty($partes[1])? '': $partes[1];
@@ -19,17 +19,29 @@
 
     $dadosDoLivro = get('livros', "ISBN = $ISBN");
     
-    /*
+    
     if($id != '') {
         $_POST = get('compras', "id = $id");
         $quantidade = $_POST['valor']/$dadosDoLivro['valorLivro'];
     } else {
         $quantidade = '';
     }*/
+    
     var_dump($_SESSION);
     var_dump($_POST);
     var_dump($_GET);
-    if(isset($id)) {
+
+    $ISBN = $_GET['ISBN'] ?? '';
+    $id = $_GET['id'] ?? '';
+    $dadosDoLivro = get('livros', "ISBN = $ISBN");
+
+    $mensagemBotao = $_GET['mensagemBotao'] ?? 'Efetuar Compra!';
+    $link = empty($_GET['link'])? 'ProcessamentoCadastrarCompra.php?ISBN='.$ISBN : $_GET['link'].$id.'&ISBN='.$ISBN;
+    echo '<br>' . $_GET['link'] . '<br>';
+    echo '<br>' . $link . '<br>';
+
+    if(isset($_GET['id'])) {
+        $titulo = $_GET['titulo'];
         $_POST = get('compras', "id = $id");
         var_dump($_POST);
         $_SESSION['codigoVendedor'] = $_POST['codVendedor'];
@@ -94,7 +106,7 @@
                         <input type="text" name="quantidade" value="<?= $_SESSION['quantidade'] ?? '' ?>" placeholder="QUANTIDADE" required/>
                         <input type="text" value="<?= $_SESSION['cartao'] ?? '' ?>" name="cartao" placeholder="CARTÃO" required />
                     </div>
-                    <input type="submit" value="Efetuar Compra!" class="button"/>
+                    <input type="submit" value="<?= $mensagemBotao?>" class="button"/>
                 </form>
             </div>
     </section>

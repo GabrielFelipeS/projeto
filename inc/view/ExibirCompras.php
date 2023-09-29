@@ -81,7 +81,7 @@
                 <a href="/projeto/inc/controller/excluirCompra.php?id=<?= $venda['id']; ?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black; margin-right: 25px;"><img style="width: 30px;  filter: invert(1);" src="/projeto/assets/images/excluir.png" alt="excluir" ></button></a> 
             </td>
             <td>      
-                <a href="/projeto/inc/view/cadastrarCompra.php?ISBN=<?= $venda['ISBNlivro'].'-'.$venda['id'].'-'.'Editando o livro'.'-'.'salvarCompra.php?id='?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>           
+                <a href="/projeto/inc/view/cadastrarCompra.php?ISBN=<?= $venda['ISBNlivro'].'&id='.$venda['id'].'&titulo='.'Editando o livro'.'&mensagemBotao=Editar Compra!'.'&link='.'salvarCompra.php?id='?>"><button type="button" class="btn btn-primary" style="background-color: black; border-color: black;"><img style="width: 30px; filter: invert(1);" src="/projeto/assets/images/editar.png" alt="editar"></button></a>           
             </td>
           </tr>
         <?php } ?>
