@@ -38,7 +38,7 @@
     
     <script id="script">
         // Obtém a referência ao elemento da mensagem de erro
-        const mensagem = document.getElementById("mensagem");
+        //const mensagem = document.getElementById("mensagem");
         // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
         let tempoExibicao = 10000; // 4 segundos
         // Função para ocultar a mensagem após o tempo definido
@@ -254,12 +254,12 @@
         
             <script id="script">
                 // Obtém a referência ao elemento da mensagem de erro
-                mensagem = document.getElementById("sugestaoMensagem");
+                //mensagem = document.getElementById("sugestaoMensagem");
                 // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
                 tempoExibicao = 10000; // 4 segundos
                 // Função para ocultar a mensagem após o tempo definido
                 function deletaMensagem() {
-                    var node = document.getElementById("mensagem");
+                    var node = document.getElementById("sugestaoMensagem");
                     if (node.parentNode) {
                         node.parentNode.removeChild(node);
                     }
