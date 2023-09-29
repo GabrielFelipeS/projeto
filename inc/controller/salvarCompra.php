@@ -12,6 +12,8 @@ echo '</br>ID: '.$ID;
 echo '</br>ISBN: '.$ISBN;
 echo '</br>Valor: '.$valor;
 
+session_start();
+
 $ID = $_GET['id'];
 $ISBN = $_GET['ISBN'];
 $quantidade = $_POST['quantidade'];
@@ -25,5 +27,8 @@ $compra = new Compra($ID, $_POST['cpf'], $ISBN, $_POST['codigo_vendedor'], $valo
 
 $compraDAO = new CompraDAO($conn);
 $compraDAO->modificarCompra($ID ,$compra);
+
+$_SESSION['mensagem'] = 'Compra editada com sucesso!';
+$_SESSION['cor'] = 'green';
 
 header('Location: ../view/ExibirCompras.php');

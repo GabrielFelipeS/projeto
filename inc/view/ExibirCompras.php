@@ -22,32 +22,41 @@
 
 <?php 
 //INICO- trecho de confirmação de exclusão
-    $mensagemErro = '';
-    $erro = $_GET['excluido'] ?? '';
+    $mensagem = '';
+    if (isset($_SESSION['mensagem'])) {
+        $mensagem = "<p style='display: flex; color:".$_SESSION['cor']."; justify-content: center;'><strong>".$_SESSION['mensagem'].".</strong></p>";
 
-    if ($erro == 'excluido_sucesso') {
-        $mensagemErro = "<p style='display: flex; color: red; justify-content: center;'><strong>Livro excluído da lista.</strong></p>";
+        unset($_SESSION['color'], $_SESSION['mensagem']);
     }
+
     ?>
-    <?php if ($mensagemErro): ?>
-        <div class="erro-mensagem" id="erroMensagem">
-            <?= $mensagemErro ?>
+    <?php if ($mensagem): ?>
+        <div class="erro-mensagem" id="mensagem">
+            <?= $mensagem ?>
         </div>
     <?php endif; ?>
 
-    <script>
-    // Obtém a referência ao elemento da mensagem de erro
-    const erroMensagem = document.getElementById("erroMensagem");
-    // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-    const tempoExibicao = 4000; // 4 segundos
-    // Função para ocultar a mensagem após o tempo definido
-    function ocultarMensagemErro() {
-        erroMensagem.style.display = "none"; // Oculta a mensagem de erro
-    }
-    // Configura o temporizador para chamar a função após o tempo definido
-    setTimeout(ocultarMensagemErro, tempoExibicao);
-    //FIM -trecho de confirmação de exclusão
-</script>
+      <script id="script">
+          // Obtém a referência ao elemento da mensagem de erro
+          //const mensagem = document.getElementById("mensagem");
+          // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+          let tempoExibicao = 10000; // 4 segundos
+          // Função para ocultar a mensagem após o tempo definido
+          function deletaMensagem() {
+              var node = document.getElementById("mensagem");
+              if (node.parentNode) {
+                  node.parentNode.removeChild(node);
+              }
+
+              var node = document.getElementById("script");
+              if (node.parentNode) {
+                  node.parentNode.removeChild(node);
+              }
+          }
+          // Configura o temporizador para chamar a função após o tempo definido
+          setTimeout(deletaMensagem, tempoExibicao);
+          //FIM -trecho de confirmação de exclusão
+    </script>
 
 
 <div style="color: black;">
