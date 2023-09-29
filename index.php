@@ -22,11 +22,11 @@
         <?php 
     //INICO- trecho de confirmação de exclusão
         $mensagem = '';
-        if (isset($_SESSION['compraRealizada'])) {
+        if (isset($_SESSION['compraRealizada'])):
             $mensagem = "<p style='display: flex; color: green; justify-content: center;'><strong>".$_SESSION['compraRealizada']."</strong></p>";
     
             unset($_SESSION['compraRealizada']);
-        }
+        
         ?>
     
         <?php if ($mensagem): ?>
@@ -36,7 +36,7 @@
             </section>
         <?php endif; ?>
     
-    <script>
+    <script id="script">
         // Obtém a referência ao elemento da mensagem de erro
         const mensagem = document.getElementById("mensagem");
         // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
@@ -47,12 +47,17 @@
             if (node.parentNode) {
                 node.parentNode.removeChild(node);
             }
+
+            var node = document.getElementById("script");
+            if (node.parentNode) {
+                node.parentNode.removeChild(node);
+            }
         }
         // Configura o temporizador para chamar a função após o tempo definido
         setTimeout(deletaMensagem, tempoExibicao);
         //FIM -trecho de confirmação de exclusão
     </script>
-
+    <?php endif; ?>
 
       <main>
         <section class="banner">
@@ -236,10 +241,10 @@
         <?php
             $mensagemSugestao = '';      
         
-            if (isset($_SESSION['mensagemSugestao'])) {
+            if (isset($_SESSION['mensagemSugestao'])):
                 $mensagemSugestao = "<p style='display: flex; color: green; justify-content: center;'><strong>Sugestao recebida.</strong></p>";
                 unset($_SESSION['mensagemSugestao']);
-            }
+            
             ?>
             <?php if ($mensagemSugestao): ?>
                 <div class="sugestao-mensagem" id="sugestaoMensagem">
@@ -247,20 +252,28 @@
                 </div>
             <?php endif; ?>
         
-        <script>
-            // Obtém a referência ao elemento da mensagem de erro
-            const sugestaoMensagem = document.getElementById("sugestaoMensagem");
-            // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-            tempoExibicao = 4000; // 4 segundos
-            // Função para ocultar a mensagem após o tempo definido
-            function ocultarMensagemSugestao() {
-                sugestaoMensagem.style.display = "none"; // Oculta a mensagem de erro
-            }
-            // Configura o temporizador para chamar a função após o tempo definido
-            setTimeout(ocultarMensagemSugestao, tempoExibicao);
-            //FIM -trecho de confirmação de exclusão
-        </script>
-        
+            <script id="script">
+                // Obtém a referência ao elemento da mensagem de erro
+                mensagem = document.getElementById("sugestaoMensagem");
+                // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+                tempoExibicao = 10000; // 4 segundos
+                // Função para ocultar a mensagem após o tempo definido
+                function deletaMensagem() {
+                    var node = document.getElementById("mensagem");
+                    if (node.parentNode) {
+                        node.parentNode.removeChild(node);
+                    }
+
+                    var node = document.getElementById("script");
+                    if (node.parentNode) {
+                        node.parentNode.removeChild(node);
+                    }
+                }
+                // Configura o temporizador para chamar a função após o tempo definido
+                setTimeout(deletaMensagem, tempoExibicao);
+                //FIM -trecho de confirmação de exclusão
+            </script>
+        <?php endif; ?>
         
 
         <div class="section-contact" id= 'Sugestoes?sugestao=recebida'>
