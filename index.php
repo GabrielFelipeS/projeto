@@ -139,7 +139,7 @@
         </div>
         </section>
 
-        <?= include './inc/appearance/companies.php'; ?>
+        <?php include './inc/appearance/companies.php'; ?>
 
         <?= abertura_light(['titulo' => 'Preços', 'descricao' => 'Assinaturas', 'id' => 'Preco']) ?>
         <div class="section-price">
@@ -156,7 +156,7 @@
         </section>
 
         <?= abertura_light(['titulo' => 'Os livros', 'descricao' => 'Podem te levar a qualquer lugar do mundo', 'id' => 'premium']) ?>     
-        <div style="color: white;"><?= include './inc/appearance/carrosel.php'; ?> </div>     
+        <div style="color: white;"><?php include './inc/appearance/carrosel.php'; ?> </div>     
         </div>
         </section>
 
@@ -228,38 +228,40 @@
         </section>
 
 
+
+    <?php if(isset($_SESSION['email'])):?>
         <?=  abertura_light(['titulo' => 'Sugestões', 'descricao' => 'Deixe sua sugestão aqui', 'id' => 'Sugestoes'])?>
         
 
-    <?php
-          $mensagemSugestao = '';
-          $sugestao = $_GET['Sugestoes?sugestao'] ?? '';
-      
-          if ($sugestao == 'recebida') {
-              $mensagemSugestao = "<p style='display: flex; color: green; justify-content: center;'><strong>Sugestao recebida.</strong></p>";
-          }
-          ?>
-          <?php if ($mensagemSugestao): ?>
-              <div class="sugestao-mensagem" id="sugestaoMensagem">
-                  <?= $mensagemSugestao ?>
-              </div>
-          <?php endif; ?>
-      
-          <script>
-          // Obtém a referência ao elemento da mensagem de erro
-          const sugestaoMensagem = document.getElementById("sugestaoMensagem");
-          // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
-          tempoExibicao = 4000; // 4 segundos
-          // Função para ocultar a mensagem após o tempo definido
-          function ocultarMensagemSugestao() {
-              sugestaoMensagem.style.display = "none"; // Oculta a mensagem de erro
-          }
-          // Configura o temporizador para chamar a função após o tempo definido
-          setTimeout(ocultarMensagemSugestao, tempoExibicao);
-          //FIM -trecho de confirmação de exclusão
-      </script>
-      
-      
+        <?php
+            $mensagemSugestao = '';
+            $sugestao = $_GET['Sugestoes?sugestao'] ?? '';
+        
+            if ($sugestao == 'recebida') {
+                $mensagemSugestao = "<p style='display: flex; color: green; justify-content: center;'><strong>Sugestao recebida.</strong></p>";
+            }
+            ?>
+            <?php if ($mensagemSugestao): ?>
+                <div class="sugestao-mensagem" id="sugestaoMensagem">
+                    <?= $mensagemSugestao ?>
+                </div>
+            <?php endif; ?>
+        
+            <script>
+            // Obtém a referência ao elemento da mensagem de erro
+            const sugestaoMensagem = document.getElementById("sugestaoMensagem");
+            // Define um intervalo de tempo em milissegundos (por exemplo, 5000ms = 5 segundos)
+            tempoExibicao = 4000; // 4 segundos
+            // Função para ocultar a mensagem após o tempo definido
+            function ocultarMensagemSugestao() {
+                sugestaoMensagem.style.display = "none"; // Oculta a mensagem de erro
+            }
+            // Configura o temporizador para chamar a função após o tempo definido
+            setTimeout(ocultarMensagemSugestao, tempoExibicao);
+            //FIM -trecho de confirmação de exclusão
+        </script>
+        
+        
 
         <div class="section-contact" id= 'Sugestoes?sugestao=recebida'>
             <form method="POST" enctype="multipart/form-data" action="./inc/controller/sugestao.php" >
@@ -279,6 +281,8 @@
         </div>
         </section>
         
+        <?php endif; ?>
+
         <section class="section-map" title="CONTATOS">
             <div class="section-map--area">
                 <div class="section-map--info">

@@ -12,20 +12,20 @@
     $email = fgets($email_post);
     fclose($email_post);
 
-    $myfile = fopen('emails', "r") or die("Você não tem permissão para gravar neste diretório!");
+    #$myfile = fopen('emails', "r") or die("Você não tem permissão para gravar neste diretório!");
 
   
 
-    while(!feof($myfile)){    
+    #while(!feof($myfile)){    
         
-        $email_arquivo = fgets($myfile);
+        #$email_arquivo = fgets($myfile);
         //var_dump($email_arquivo);
         //echo '<br>teste 1: ' + $email_arquivo;  
         echo '<br>teste 1: ';
         echo $email_arquivo . ' - ';
         echo $email;
         echo 'Resultado' . strcasecmp($email_arquivo, $email);
-        if (strcmp($email_arquivo, $email) == 0){  //Verifica se já existe
+        #if (strcmp($email_arquivo, $email) == 0){  //Verifica se já existe
             fclose($myfile);
             echo '<br>teste 2';
             $new_name = '';
@@ -46,8 +46,8 @@
             wline($myfile, $new_name);
             echo '<br>teste 5';
             break;
-        }
-    }
+        #}
+    #}
 
     fclose($myfile);
     //header('Location: ../../index.php#Sugestoes?sugestao=recebida');
